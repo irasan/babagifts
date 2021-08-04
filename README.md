@@ -33,8 +33,8 @@ Admin | add new, edit or delete categories.
     * ### Imagery 
 
 * ## Wireframes
-* Wireframes for large screens [here]((https://github.com/irasan/babagifts/blob/master/assets/wireframes/desktop_view.pdf)
-* Wireframes for medium screens [here]((https://github.com/irasan/babagifts/blob/master/assets/wireframes/tablet_view.pdf)
-* Wireframes for small screens [here]((https://github.com/irasan/babagifts/blob/master/assets/wireframes/phone_view.pdf)
+* Wireframes for large screens - [view](https://github.com/irasan/babagifts/blob/master/assets/wireframes/desktop_view.pdf)
+* Wireframes for medium screens - [view](https://github.com/irasan/babagifts/blob/master/assets/wireframes/tablet_view.pdf)
+* Wireframes for small screens - [view](https://github.com/irasan/babagifts/blob/master/assets/wireframes/phone_view.pdf)
 
 # Features

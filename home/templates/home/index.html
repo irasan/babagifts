@@ -7,15 +7,48 @@
         <img src="{% static 'images/hero-image.jpg' %}" class="img-fluid" alt="baby-feet">
         <div class="hero-inner">
             <h2>Hand picked gifts for new babas</h2>
-            <button>Shop now</button>
+            <button class="btn bg-coral">Shop now</button>
         </div>
     </div>
 </section>
 
 <section class="container">
-    <div class="section-center bg-second">
+    <div class="section-center">
         <h2>Loved by children, trusted by parents</h2>
         <p>BabaGifts presents a collection of soft soled shoes and hair accessories for the most precious little people in our lives.</p>
+    </div>
+    <div class="row awards">
+        <div class="col-4">
+            <img src="{% static 'images/award2017.jpg' %}" class="img-fluid" alt="award-2017">
+        </div>
+        <div class="col-4">
+            <img src="{% static 'images/award2019.jpeg' %}" class="img-fluid" alt="award-2019">
+        </div>
+        <div class="col-4">
+            <img src="{% static 'images/award21.png' %}" class="img-fluid" alt="award-2021">
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="section-center bg-coral">
+        <h2>Join our newsletter</h2>
+        <p>Exclusive access to products, special offers & all the important updates.</p>
+        <form>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control form-control-lg"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-lg light-button bg-peach signup-btn">
+                Sign Up
+              </button>
+        </form>
     </div>
 </section>
 

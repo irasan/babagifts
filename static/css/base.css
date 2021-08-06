@@ -1,48 +1,89 @@
-/* body {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Style+Script&display=swap');
+
+body {
     text-align: center;
-}     */
+    font-family: 'Montserrat', sans-serif;
+}    
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Style Script', cursive;
+    letter-spacing: .2rem;
+}
     
 /* colors */
-.bg-main {
-    background-color: bisque;
+.bg-apricot {
+    background-color: #FBC4AB;
 }
 
-.bg-second {
-    background-color: coral;
+.bg-peach {
+    background-color: #FFDAB9;
 }
 
-.main-header {
+.bg-melon {
+    background-color: #F8AD9D;
+}
+
+.bg-pink {
+    background-color: #F4978E;
+}
+
+.bg-coral {
+    background-color: #F08080;
+}
+
+/* navbar */
+.navbar .navbar-brand {
     font-size: 1.5rem;
 }
 
-.logo {
-    font-size: 1.8rem;
+.navbar {
+    height: 80px;
+    font-size: 1.3rem;
+}
+
+.navbar .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #EC5B5B;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #4A0D07;
 }
 
 .navbar-toggler {
     margin-left: 8px;
 }
 
+/* footer */
 footer {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    font-size: 1.2rem;
 }
 
 footer i {
     margin-right: 0.5rem;
     margin-left: 0.5rem;
-    float: right;
     font-size: 1.5rem;
 }
 
-.right {
-    padding: 1rem;
-    text-align: right;
+footer i:hover {
+    color: #EC5B5B;
+}
+
+footer .nav-link:hover {
+    color: #EC5B5B;
+}
+
+.copyright {
+    padding-top: 3rem;
 }
 
 a {
-    color: rgba(0,0,0,.5);
+    color: #4A0D07;
 }
 
+/* home page */
 .container-hero {
     position: relative;
     width: 100%;
@@ -60,14 +101,9 @@ a {
 }
 
 .hero-inner button {
-    /* margin: 10px; */
     border: none;
     cursor: pointer;
-    border-radius: 5px;
-}
-
-.container button:hover {
-    background-color: black;
+    border-radius: 10px;
 }
 
 .section-center {
@@ -80,6 +116,22 @@ a {
 .container {
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.awards {
+    margin: 30px auto;
+}
+
+.awards img {
+    width: 80%;
+}
+
+.signup-btn {
+    border-radius: 10px;
+}
+
+.signup-btn:hover {
+    background-color: #F8AD9D;
 }
 
 /* -------------------------------- Media Queries */

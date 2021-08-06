@@ -93,6 +93,46 @@
     {% block content %}
     {% endblock %}
 
+    {% block footer %} 
+    <footer>
+      <div class="row">
+          <div class="col-12 col-md-9">
+            <ul class="nav nav-fill">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Shipping & Returns</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">F.A.Q.</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Account</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-3">
+              <a class="grey-text text-lighten-4 right" href="https://www.facebook.com">
+                  <i class="fab fa-facebook-square"></i>
+              </a>
+              <a class="grey-text text-lighten-4 right" href="https://www.youtube.com">
+                  <i class="fab fa-youtube-square"></i>
+              </a>
+              <a class="grey-text text-lighten-4 right" href="https://www.twitter.com">
+                  <i class="fab fa-twitter-square"></i>
+              </a>
+          </div>
+      </div>
+      <div class="right">
+        <p>Copyright &copy; 2021 Irasan</p>
+      </div>
+    </footer>
+    {% endblock %}
+
     {% block postloadjs %}
       <script type="text/javascript">
         $('.toast').toast('show');

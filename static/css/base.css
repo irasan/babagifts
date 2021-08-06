@@ -1,3 +1,16 @@
+/* body {
+    text-align: center;
+}     */
+    
+/* colors */
+.bg-main {
+    background-color: bisque;
+}
+
+.bg-second {
+    background-color: coral;
+}
+
 .main-header {
     font-size: 1.5rem;
 }
@@ -10,6 +23,73 @@
     margin-left: 8px;
 }
 
+footer {
+    padding-bottom: 50px;
+}
+
+footer i {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    float: right;
+    font-size: 1.5rem;
+}
+
+.right {
+    padding: 1rem;
+    text-align: right;
+}
+
 a {
     color: rgba(0,0,0,.5);
 }
+
+.container-hero {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-inner {
+    position: absolute;
+    margin-top: 50px;
+}
+
+.hero-inner h2 {
+    font-size: 1.5rem;
+}
+
+.hero-inner button {
+    /* margin: 10px; */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container button:hover {
+    background-color: black;
+}
+
+.section-center {
+    padding: 30px;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* -------------------------------- Media Queries */
+
+@media (max-width: 500px) {
+    .hero-inner h2 {
+        font-size: 1rem;
+    }
+
+    .hero-inner {
+        margin-top: 20px;
+    }
+  } 

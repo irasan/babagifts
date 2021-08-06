@@ -2,5 +2,21 @@
 {% load static %}
 
 {% block content %}
-    <h1 class="display-4 text-success">Home page</h1>
+<section>
+    <div class="container-hero">
+        <img src="{% static 'images/hero-image.jpg' %}" class="img-fluid" alt="baby-feet">
+        <div class="hero-inner">
+            <h2>Hand picked gifts for new babas</h2>
+            <button>Shop now</button>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="section-center bg-second">
+        <h2>Loved by children, trusted by parents</h2>
+        <p>BabaGifts presents a collection of soft soled shoes and hair accessories for the most precious little people in our lives.</p>
+    </div>
+</section>
+
 {% endblock %}

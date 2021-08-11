@@ -34,7 +34,8 @@
                         <td class="w-25">
                             <img class="img-fluid rounded" src="{{ item.product.image_url }}">
                         </td>
-                        <td>{{ item.product.name }}</td>
+                        <td class="text-left"><p class="lead">{{ item.product.name }}</p>
+                        <p>Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p></td>
                         <td><p>{{ item.quantity }}</p></td>
                         <td><p>{{ item.product.price }}</p></td>
                       </tr>

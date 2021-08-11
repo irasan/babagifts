@@ -31,6 +31,14 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #F08080;
 }
 
+.bg-wine {
+    background-color: #4A0D07;
+}
+
+.btn-outline {
+    border: 1px solid #4A0D07;
+}
+
 /* navbar */
 .navbar .navbar-brand {
     font-size: 1.5rem;

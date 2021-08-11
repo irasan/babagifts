@@ -54,13 +54,32 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 8px;
 }
 
+/* search input field in the navbar */
+.search-field {
+    z-index: 2;
+    width: 0;
+    padding: 8px 0;
+    border: none;
+    margin: 0;
+}
+
+.label-icon {
+    color: #4A0D07;
+}
+
+.label-icon:hover {
+    color: #EC5B5B;
+}
+
 .search-field:focus {
     width: 200px;
     box-sizing: border-box;
     border-radius: 10px;
-    background: #F4978E;
-    z-index: 0;
-    text-align: right;
+    background: #FFDAB9;
+    text-align: left;
+    padding-left: 5px;
+    border: none;
+    outline: 0;
 }
 
 /* footer */

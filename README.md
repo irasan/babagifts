@@ -38,3 +38,7 @@ Admin | add new, edit or delete categories.
 * Wireframes for small screens - [view](https://github.com/irasan/babagifts/blob/master/assets/wireframes/phone_view.pdf)
 
 # Features
+
+
+### Borrowed Code
+Hint about removing up and down arrows from quantity input field in the shopping bag was taken [here](https://www.geeksforgeeks.org/how-to-disable-arrows-from-number-input/)

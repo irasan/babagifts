@@ -179,13 +179,21 @@ a {
     background-color: #F8AD9D;
 }
 
-/* product detail page */
-.back-to-products-btn .btn{
-    border: none;
+.remove-item,
+.update-btn {
     cursor: pointer;
-    border-radius: 10px;
-    margin-bottom: 30px;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+  
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 
 /* -------------------------------- Media Queries */
 

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'bag',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -159,4 +160,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DELIVERY = 5.95
+DELIVERY_THRESHOLD = 25
+DELIVERY_MIN = 3.95
+DELIVERY_MAX = 5.95

@@ -179,12 +179,9 @@ a {
     background-color: #F8AD9D;
 }
 
-/* product detail page */
-.back-to-products-btn .btn{
-    border: none;
+.remove-item,
+.update-btn {
     cursor: pointer;
-    border-radius: 10px;
-    margin-bottom: 30px;
 }
 
 /* -------------------------------- Media Queries */

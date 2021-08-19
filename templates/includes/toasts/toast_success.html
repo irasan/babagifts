@@ -17,7 +17,7 @@
             </div>
         </div>
         {% if grand_total and not on_profile_page %}
-            <p class="logo-font bg-white text-black py-1">Your Bag ({{ product_count }})</p>
+            <h4 class="bg-apricot text-black py-1">Your Bag ({{ product_count }})</h4>
             <div class="bag-notification-wrapper">
                 {% for item in bag_items %}
                     <div class="row">
@@ -28,19 +28,18 @@
                             <img class="w-100" src="{% static 'images/no-image.png' %}" alt="{{ item.product.name }}">
                             {% endif %}
                         </div>
-                        <div class="col-9">
+                        <div class="col-9 text-left">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                            <p class="small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
+                <strong><p class="text-black float-left">Total (exc. delivery):</p> <span class="float-right">€{{ total|floatformat:2 }}</span></strong>
             </div>
             <div class="row">
                 <div class="col">
-                    <strong><p class="mt-3 mb-1 text-black">
-                        <span class="float-right">${{ total|floatformat:2 }}</span>
-                    <a href="{% url 'view_bag' %}" class="btn btn-black btn-block rounded-0">
+                    <a href="{% url 'view_bag' %}" class="btn bg-wine text-light mb-2 mt-2">
                         <span class="text-uppercase">Go To Secure Checkout</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>

@@ -1,4 +1,3 @@
-from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
@@ -9,7 +8,6 @@ def bag_contents(request):
     bag_items = []
     total = 0
     product_count = 0
-    delivery = Decimal(settings.DELIVERY)
     bag = request.session.get('bag', {})
 
     for item_id, item_data in bag.items():
@@ -34,7 +32,12 @@ def bag_contents(request):
                     'size': size,
                 })
     
-    grand_total = Decimal(delivery + total)
+    if total < settings.DELIVERY_THRESHOLD:
+        delivery = settings.DELIVERY_MIN
+    else:
+        delivery = settings.DELIVERY_MAX
+
+    grand_total = delivery + total
     
     context = {
         'bag_items': bag_items,

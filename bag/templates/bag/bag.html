@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block content %}
 <div class="container">
@@ -24,7 +25,8 @@
                     <thead>
                       <tr>
                         <th scope="col" colspan="2"><h2>Your secure shopping bag</h2></th>
-                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Qty</th>
                         <th scope="col">Subtotal</th>
                       </tr>
                     </thead>
@@ -42,6 +44,9 @@
                                 {% endif %}</p>
                             <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
                                 <small>Remove</small></a>
+                        </td>
+                        <td>
+                            €{{ item.product.price }}
                         </td>
                         <td>
                             <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
@@ -76,7 +81,7 @@
                             </form>
                             <a class="update-btn text-info"><small>Update</small></a>
                         </td>
-                        <td><p>{{ item.product.price }}</p></td>
+                        <td><p>€{{ item.product.price | calc_subtotal:item.quantity }}</p></td>
                       </tr>
                       {% endfor %}
                       <tr>

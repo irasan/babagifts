@@ -189,6 +189,14 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.input-group>.custom-file, 
+.input-group>.custom-select, 
+.input-group>.form-control, 
+.input-group>.form-control-plaintext {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
   
 input[type=number] {
     -moz-appearance: textfield;

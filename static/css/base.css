@@ -202,6 +202,20 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+/* ------------------------------- bootstrap toasts */
+.message-container {
+    position: fixed;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
 
 /* -------------------------------- Media Queries */
 

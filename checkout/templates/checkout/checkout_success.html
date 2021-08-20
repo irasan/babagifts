@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -16,11 +17,79 @@
             </div>
         </div>
 
+        <!-- Order summary -->
         <div class="row">
-            <div class="col-12 col-lg-7"></div>
+            <div class="col-12 col-lg-8 offset-lg-2 mt-5">
+                <p class="text-left mb-4">Order number: <strong>{{ order.order_number }}</strong><br>
+                Order date: {{ order.date }}</p>
+
+                <div class="table-responsive rounded">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Item</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                        </thead>
+                        {% for item in order.lineitems.all %}
+                        <tbody>
+                        <tr>
+                            <td class="w-25">
+                                <img class="img-fluid rounded" src="{{ item.product.image_url }}">
+                            </td>
+                            <td class="text-left"><p class="lead">{{ item.product.name }}</p>
+                                <p>Size: {% if item.product_size %} 
+                                        {{ item.product_size|upper }}
+                                    {% else %}
+                                        N/A
+                                    {% endif %}</p>
+                            </td>
+                            <td>
+                                €{{ item.product.price }}
+                            </td>
+                            <td>
+                                {{ item.quantity }}
+                            <td><p>€{{ item.product.price | calc_subtotal:item.quantity }}</p></td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="5" class="pt-5 text-right">
+                                <p>Total: €{{ order.order_total }}</p>
+                                <p>Delivery Cost: €{{ order.delivery_cost }}</p>
+                                <h4><strong>Grand Total: €{{ order.grand_total }}</strong></h4>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="border rounded bg-peach text-left p-2">
+                    <h5 class="mt-2">Delivering to:</h5>
+                    <p>{{ order.full_name }}<br>
+                        {{ order.street_address1 }}<br>
+                        {% if order.street_address2 %}
+                            {{ order.street_address1 }}
+                        {% endif %}<br>
+                        {% if order.county %}
+                            {{ order.county }}
+                        {% endif %}<br>
+                        {{ order.town_or_city }}<br>
+                        {% if order.postcode %}
+                            {{ order.postcode }}
+                        {% endif %}<br>
+                        {{ order.country }}<br>
+                        {{ order.phone_number }}
+                    </p>
+
+                </div>
+            </div>
         </div>
+        <!-- End order summary -->
+
         <div class="row">
-			<div class="col-12 col-lg-7">
+			<div class="col-12 col-lg-8 offset-lg-2">
 				<a href="{% url 'products' %}" class="btn bg-wine text-white mt-5 mb-5">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>

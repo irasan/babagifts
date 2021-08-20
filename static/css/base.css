@@ -171,11 +171,13 @@ a {
     width: 80%;
 }
 
-.signup-btn {
+.signup-btn,
+.submit-button {
     border-radius: 10px;
 }
 
-.signup-btn:hover {
+.signup-btn:hover,
+.submit-button:hover {
     background-color: #F8AD9D;
 }
 

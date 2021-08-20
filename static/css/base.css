@@ -176,8 +176,7 @@ a {
     border-radius: 10px;
 }
 
-.signup-btn:hover,
-.submit-button:hover {
+.signup-btn:hover {
     background-color: #F8AD9D;
 }
 

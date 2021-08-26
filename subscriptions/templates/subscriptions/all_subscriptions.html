@@ -7,7 +7,7 @@
             <div class="col-12">
                 {% for s in subscriptions %}
                 <div class="card" style="width: 22rem;">
-                    {% if product.image_url %}
+                    {% if s.image_url %}
                         <img class="card-img-top img-fluid" src="{{ s.image_url }}" alt="{{ s.name }}">
                     {% else %}
                         <img class="card-img-top img-fluid" src="{% static 'images/no-image.png' %}" alt="{{ s.name }}">
@@ -15,7 +15,9 @@
                     <div class="card-body">
                       <h5 class="card-title">{{ s.name }}</h5>
                       <p class="card-text">{{ s.description }}</p>
-                      <a href="#" class="btn bg-wine text-white">Subscribe</a>
+                      <h3>{{ s.id }}</h3>
+                      <a href="{% url 'subscribe' s.id %}" class="btn bg-wine text-white">Subscribe</a>
+                      
                     </div>
                   </div>
                 {% endfor %}

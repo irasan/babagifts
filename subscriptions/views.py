@@ -9,8 +9,6 @@ from .models import Subscription, SubActive
 from profiles.models import UserProfile
 
 import stripe
-import json
-
 
 
 # Create your views here.
@@ -51,7 +49,6 @@ def subscribe(request, subscription_id):
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
-            'duration': request.POST['duration'],
             'phone_number': request.POST['phone_number'],
             'country': request.POST['country'],
             'postcode': request.POST['postcode'],
@@ -65,6 +62,7 @@ def subscribe(request, subscription_id):
         if subscription_form.is_valid():
             sub_active = subscription_form.save()
             pid = request.POST.get('client_secret').split('_secret')[0]
+            sub_active.sub_total = subscription.price
             sub_active.stripe_pid = pid
             sub_active.save()
             request.session['save_info'] = 'save-info' in request.POST
@@ -103,7 +101,15 @@ def confirm_sub(request, sub_number):
     """
     Handle successful subscribes
     """
+    save_info = request.session.get('save_info')
+    sub_active = get_object_or_404(SubActive, sub_number=sub_number)
+    messages.success(request, f'Subscription successfully processed! \
+        Your subscription number is {sub_number}. A confirmation \
+        email will be sent to {sub_active.email}.')
 
     template = 'subscriptions/confirm_sub.html'
+    context = {
+        'sub_active': sub_active,
+    }
 
-    return render(request, template)
+    return render(request, template, context)

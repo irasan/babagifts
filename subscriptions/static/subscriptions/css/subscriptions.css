@@ -28,3 +28,36 @@
   .hidden {
       display: none;
   }
+
+  .container-sub {
+    position: relative; 
+  }
+
+  .sub-heading {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: white;
+    width: 30%;
+  }
+
+  .sub-inner {
+    font-size: 1.2em;
+    position: absolute;
+    width: 40%;
+    top: 30px;
+    left: 25px;
+    color: white;
+  }
+
+  /* -------------------------------- Media Queries */
+
+@media (max-width: 768px) {
+  .sub-inner {
+    font-size: 1.2em;
+    position: relative;
+    color: black;
+    width: 100%;
+    margin: auto;
+  }
+}

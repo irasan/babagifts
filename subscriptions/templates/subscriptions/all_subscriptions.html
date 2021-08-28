@@ -1,27 +1,90 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'subscriptions/css/subscriptions.css' %}">
+{% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                {% for s in subscriptions %}
-                <div class="card" style="width: 22rem;">
-                    {% if s.image_url %}
-                        <img class="card-img-top img-fluid" src="{{ s.image_url }}" alt="{{ s.name }}">
-                    {% else %}
-                        <img class="card-img-top img-fluid" src="{% static 'images/no-image.png' %}" alt="{{ s.name }}">
-                    {% endif %}
-                    <div class="card-body">
-                      <h5 class="card-title">{{ s.name }}</h5>
-                      <p class="card-text">{{ s.description }}</p>
-                      <h3>{{ s.id }}</h3>
-                      <a href="{% url 'subscribe' s.id %}" class="btn bg-wine text-white">Subscribe</a>
-                      
-                    </div>
-                  </div>
-                {% endfor %}
-            </div>
+<section>
+    <div class="container-sub">
+        <img src="{% static 'images/subscription.jpg' %}" class="img-fluid" alt="baby">
+        <div class="sub-heading">
+            <h2 class="d-inline d-md-none">Hair bow subscriptions</h2>
+        </div>
+        <div class="sub-inner">
+            <p>Take the guess-work out of choosing the perfect bows + save some money while you’re at it!
+                If you’re into getting a box of fun delivered straight to your doorstep each month, then our
+                bow subscription box is for you! As a monthly subscriber, you’ll get three hand-picked bows that
+                we’re obsessed with, and we know you will be too!</p>
+            <a href="{% anchor 'all_subscriptions' 'subs' %}" class="btn btn-lg bg-coral mb-5">Shop now</a>
         </div>
     </div>
+    <div class="row">
+        <h4 class="col-10 offset-1 mt-3">Our monthly bow subscription boxes include our newest bows that aren't released yet, 
+            so your little babe will be the first one rockin’ the latest designs!</h4>
+        <div class="col mt-3 p-5 lead bg-peach">
+            Shipping: Your bows will be shipped within the last seven days of each month to be delivered right to your mailbox. 
+        </div>
+    </div>
+</section>
+
+<section class="container" id="subs">
+    <div class="row">
+        {% for s in subscriptions %}
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 border-0">
+                {% if s.image_url %}
+                <img class="card-img-top img-fluid" src="{{ s.image_url }}" alt="{{ s.name }}">
+                {% else %}
+                <img class="card-img-top img-fluid" src="{% static 'images/no-image.png' %}" alt="{{ s.name }}">
+                {% endif %}
+                <div class="card-body pb-0">
+                    <p class="mb-0">{{ s.name }}<br>
+                    <span class="text-muted">{{ s.description }}</span></p>
+                </div>
+                <div class="card-footer bg-white pt-0 border-0 text-left">
+                    <div class="row">
+                        <div class="col">
+                            <p class="lead mb-0 text-left font-weight-bold">€{{ s.price }}</p>
+                            {% if s.rating %}
+                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ s.rating }} / 5</small>
+                            {% else %}
+                            <small class="text-muted">No Rating</small>
+                            {% endif %}
+                            <div class="d-flex justify-content-center mt-2">
+                                <a href="{% url 'subscribe' s.id %}" class="btn bg-wine text-white">Subscribe</a>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:1 %}
+        <div class="col-12 d-sm-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:4 %}
+        <div class="col-12 d-none d-xl-block mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}

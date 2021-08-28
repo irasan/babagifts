@@ -34,12 +34,19 @@ class SubActive(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     sub_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    end_Date = models.DateTimeField(null=False)
 
     def _generate_sub_number(self):
         """
         Generate a random, unique subscription number using UUID
         """
         return uuid.uuid4().hex.upper()
+
+    # def get_end_date(self):
+    #     """
+    #     Generate subscription end date based on duration
+    #     """
+    #     return 
 
     def save(self, *args, **kwargs):
         """

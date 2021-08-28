@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'subscriptions/css/subscriptions.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="container">
-    <div>{{ subscription.id }}</div>
-    
     <div class="row">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 offset-lg-3">
             <p class="text-muted">Please fill out the form below to complete your subscription</p>
             <form action="{% url 'subscribe' subscription.id %}" method="POST" id="payment-form">
                 {% csrf_token %}

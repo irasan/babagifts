@@ -1,11 +1,67 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'subscriptions/css/subscriptions.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="container">
   <hr>
   <h2>Thank you! Your subscription was created </h2>
-  <p>Your subscription details are below. A confirmation email will be sent to <strong>{{ sub_active.email }}</p>
+  <p>Subscription details are below. A confirmation email will be sent to <strong>{{ sub_active.email }}</p>
   <hr>
 </div>
+
+<!-- Subscription summary -->
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8 offset-lg-2 mt-3">
+      <p class="text-left mb-4">Subscription ID: <strong>{{ sub_active.sub_number }}</strong><br>
+        {{ sub_active.name }}
+        Subscription date: {{ sub_active.date }}</p>
+
+      <div class="border rounded p-2 mb-5">
+        <h5 class="mt-2">Delivering to:</h5>
+        <p>{{ sub_active.full_name }}<br>
+          {{ sub_active.street_address1 }}<br>
+          {% if sub_active.street_address2 %}
+          {{ sub_active.street_address1 }}<br>
+          {% endif %}
+          {% if sub_active.county %}
+          {{ orsub_activeder.county }}<br>
+          {% endif %}
+          {{ sub_active.town_or_city }}<br>
+          {% if sub_active.postcode %}
+          {{ sub_active.postcode }}<br>
+          {% endif %}
+          {{ sub_active.country }}<br>
+          {{ sub_active.phone_number }}
+        </p>
+
+      </div>
+    </div>
+  </div>
+  <!-- End order summary -->
+  <div class="row">
+    <div class="col-12 col-lg-8 offset-lg-2 mb-5">
+      <a href="{% url 'profile' %}" class="btn btn-outline mt-5">
+          <span class="icon mr-2">
+              <i class="fas fa-angle-left"></i>
+          </span>
+          <span class="text-uppercase">My Profile</span>
+      </a>
+              
+      <a href="{% url 'products' %}" class="btn bg-wine text-white mt-5">
+        <span class="icon">
+            <i class="fas fa-chevron-left"></i>
+        </span>
+        <span class="text-uppercase">Keep Shopping</span>
+      </a>
+              
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}

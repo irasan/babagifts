@@ -17,8 +17,8 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-lg-8 offset-lg-2 mt-3">
+      <p class="lead">{{ sub_active.description }}</p>
       <p class="text-left mb-4">Subscription ID: <strong>{{ sub_active.sub_number }}</strong><br>
-        {{ sub_active.description.name }}<br>
         Subscription date: {{ sub_active.date }}<br>
         End date: {{ sub_active.end_date }}</p>
 
@@ -63,6 +63,5 @@
     </div>
   </div>
 </div>
-
 
 {% endblock %}

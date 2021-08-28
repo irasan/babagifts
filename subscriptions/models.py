@@ -22,8 +22,7 @@ class Subscription(models.Model):
 
 
 class SubActive(models.Model):
-    description = models.ForeignKey(Subscription, null=True, 
-                                    blank=False, on_delete=models.SET_NULL,)
+    description = models.CharField(max_length=80, null=False, blank=False, default='')
     sub_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='subscriptions')
@@ -46,15 +45,6 @@ class SubActive(models.Model):
         Generate a random, unique subscription number using UUID
         """
         return uuid.uuid4().hex.upper()
-
-    def save_end_date(self, *args, **kwargs):
-        """
-        Generate subscription end date based on duration
-        """
-
-        # duration = self.description.duration
-        # self.end_date = self.date + relativedelta(months=+duration)
-        super().save(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         """

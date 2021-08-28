@@ -66,6 +66,7 @@ def subscribe(request, subscription_id):
         if subscription_form.is_valid():
             sub_active = subscription_form.save()
 
+            # Calculate subscription end date
             duration = request.POST['duration']
             date = datetime.now() + relativedelta(months=int(duration))
             sub_active.end_date = date

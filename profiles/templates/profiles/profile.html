@@ -41,11 +41,14 @@
                                 {% for s in subscriptions %}
                                     <tr>
                                         <td>
+                                            <a href="{% url 'sub_history' s.sub_number %}"
+                                        title="{{ s.sub_number }}">
                                             {{ s.sub_number|truncatechars:6 }}
+                                            </a>
                                         </td>
-                                        <td>{{ s.date|date:"M d, Y" }}</td>
+                                        <td>{{ s.end_date }}</td>
                                         <td class="list-unstyled text-left">
-                                            {{ s.name }}
+                                            {{ s.description }}
                                             </ul>
                                         </td>
                                         <td>€{{ s.sub_total }}</td>

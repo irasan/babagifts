@@ -10,6 +10,8 @@ from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 
 import stripe
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 
 # Create your views here.
@@ -45,6 +47,7 @@ def subscribe(request, subscription_id):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     subscription = get_object_or_404(Subscription, pk=subscription_id)
+    print(subscription, type('subscription'))
 
     if request.method == 'POST':
         form_data = {
@@ -62,9 +65,17 @@ def subscribe(request, subscription_id):
         subscription_form = SubscriptionForm(form_data)
         if subscription_form.is_valid():
             sub_active = subscription_form.save()
+
+            duration = request.POST['duration']
+            date = datetime.now() + relativedelta(months=int(duration))
+            sub_active.end_date = date
+
+            name = request.POST['name']
+            sub_active.description = name
+
             pid = request.POST.get('client_secret').split('_secret')[0]
-            sub_active.sub_total = subscription.price
             sub_active.stripe_pid = pid
+            sub_active.sub_total = subscription.price
             sub_active.save()
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('confirm_sub', args=[sub_active.sub_number]))

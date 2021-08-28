@@ -5,6 +5,7 @@ from .models import UserProfile
 from .forms import UserProfileForm
 
 from checkout.models import Order
+from subscriptions.models import SubActive
 
 
 @login_required
@@ -45,6 +46,23 @@ def order_history(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'from_profile': True,
+    }
+
+    return render(request, template, context)
+
+
+def sub_history(request, sub_number):
+    subscription = get_object_or_404(SubActive, sub_number=sub_number)
+
+    messages.info(request, (
+        f'This is a past confirmation for subscription number {sub_number}. '
+        'A confirmation email was sent on the order date.'
+    ))
+
+    template = 'subscriptions/confirm_sub.html'
+    context = {
+        'subscription': subscription,
         'from_profile': True,
     }
 

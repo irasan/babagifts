@@ -2,6 +2,9 @@ import uuid
 from django.db import models
 from django_countries.fields import CountryField
 
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+
 from profiles.models import UserProfile
 
 
@@ -10,7 +13,7 @@ class Subscription(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    duration = models.IntegerField(null=True, blank=True)
+    duration = models.IntegerField(default=1)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
 
@@ -19,7 +22,8 @@ class Subscription(models.Model):
 
 
 class SubActive(models.Model):
-    name = models.ForeignKey(Subscription, null=False, editable=False)
+    description = models.ForeignKey(Subscription, null=True, 
+                                    blank=False, on_delete=models.SET_NULL,)
     sub_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='subscriptions')
@@ -33,9 +37,9 @@ class SubActive(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
+    end_date = models.DateTimeField(default=datetime.now, null=False, blank=False)
     sub_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
-    # end_Date = models.DateTimeField(null=False)
 
     def _generate_sub_number(self):
         """
@@ -43,11 +47,14 @@ class SubActive(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
-    # def get_end_date(self):
-    #     """
-    #     Generate subscription end date based on duration
-    #     """
-    #     return 
+    def save_end_date(self, *args, **kwargs):
+        """
+        Generate subscription end date based on duration
+        """
+
+        # duration = self.description.duration
+        # self.end_date = self.date + relativedelta(months=+duration)
+        super().save(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         """

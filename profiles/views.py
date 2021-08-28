@@ -53,7 +53,7 @@ def order_history(request, order_number):
 
 
 def sub_history(request, sub_number):
-    subscription = get_object_or_404(SubActive, sub_number=sub_number)
+    sub_active = get_object_or_404(SubActive, sub_number=sub_number)
 
     messages.info(request, (
         f'This is a past confirmation for subscription number {sub_number}. '
@@ -62,7 +62,7 @@ def sub_history(request, sub_number):
 
     template = 'subscriptions/confirm_sub.html'
     context = {
-        'subscription': subscription,
+        'sub_active': sub_active,
         'from_profile': True,
     }
 

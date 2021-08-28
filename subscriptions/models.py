@@ -19,6 +19,7 @@ class Subscription(models.Model):
 
 
 class SubActive(models.Model):
+    name = models.ForeignKey(Subscription, null=False, editable=False)
     sub_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='subscriptions')
@@ -34,7 +35,7 @@ class SubActive(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     sub_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
-    end_Date = models.DateTimeField(null=False)
+    # end_Date = models.DateTimeField(null=False)
 
     def _generate_sub_number(self):
         """

@@ -24,6 +24,40 @@
                 </form>
             </div>
             <div class="col-12 col-lg-7">
+                <!-- Active subscriptions if any -->
+                {% if subscriptions %}
+                    <p class="text-muted">Active Subscriptions</p>
+                    <div class="order-history table-responsive">
+                        <table class="table table-sm table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>End Date</th>
+                                    <th>Description</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for s in subscriptions %}
+                                    <tr>
+                                        <td>
+                                            {{ s.sub_number|truncatechars:6 }}
+                                        </td>
+                                        <td>{{ s.date|date:"M d, Y" }}</td>
+                                        <td class="list-unstyled text-left">
+                                            {{ s.name }}
+                                            </ul>
+                                        </td>
+                                        <td>€{{ s.sub_total }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endif %}
+                <!-- End subscriptions -->
+
+                <!-- Order History -->
                 <p class="text-muted">Order History</p>
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">

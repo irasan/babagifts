@@ -18,5 +18,12 @@ class SubActiveAdmin(admin.ModelAdmin):
     ordering = ('-date',)
 
 
+class SubscriptionAdmin(admin.ModelAdmin):
+
+    list_display = ('sku', 'name', 'price', 'duration')
+
+    ordering = ('sku',)
+
+
 admin.site.register(SubActive, SubActiveAdmin)
-admin.site.register(Subscription)
+admin.site.register(Subscription, SubscriptionAdmin)

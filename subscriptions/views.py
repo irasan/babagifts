@@ -7,6 +7,7 @@ from .forms import SubscriptionForm
 from .models import Subscription, SubActive
 
 from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 
 import stripe
 
@@ -102,7 +103,27 @@ def confirm_sub(request, sub_number):
     Handle successful subscribes
     """
     save_info = request.session.get('save_info')
+    profile = UserProfile.objects.get(user=request.user)
     sub_active = get_object_or_404(SubActive, sub_number=sub_number)
+    # Attach the user's profile to the order
+    sub_active.user_profile = profile
+    sub_active.save()
+
+    # Save the user's info
+    if save_info:
+        profile_data = {
+            'default_phone_number': sub_active.phone_number,
+            'default_country': sub_active.country,
+            'default_postcode': sub_active.postcode,
+            'default_town_or_city': sub_active.town_or_city,
+            'default_street_address1': sub_active.street_address1,
+            'default_street_address2': sub_active.street_address2,
+            'default_county': sub_active.county,
+        }
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
+
     messages.success(request, f'Subscription successfully processed! \
         Your subscription number is {sub_number}. A confirmation \
         email will be sent to {sub_active.email}.')

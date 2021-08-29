@@ -24,6 +24,10 @@
                 </form>
             </div>
             <div class="col-12 col-lg-7">
+                <!-- Button for wishlist -->
+                <div class="text-right mb-3">
+                    <a href="{% url 'view_wishlist' %}" class="btn bg-coral"><i class="far fa-heart"></i> Saved items ( )</a>
+                </div>
                 <!-- Active subscriptions if any -->
                 {% if subscriptions %}
                     <p class="text-muted">Active Subscriptions</p>

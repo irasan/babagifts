@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
@@ -23,6 +23,7 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
+    orders.order_by('-date')
     subscriptions = profile.subscriptions.all()
 
     template = 'profiles/profile.html'
@@ -70,5 +71,5 @@ def sub_history(request, sub_number):
 
 
 def auth_logout(request):
-  logout(request)
-  return redirect('home')
+    logout(request)
+    return redirect('home')

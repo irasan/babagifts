@@ -22,6 +22,9 @@ class Subscription(models.Model):
 
 
 class SubActive(models.Model):
+    class Meta:
+        ordering = ('-date',)
+    
     description = models.CharField(max_length=80, null=False, blank=False, default='')
     sub_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,

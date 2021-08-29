@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse, HttpResponseRedirect
 from django.contrib import messages
 from .models import UserProfile, Product, Wishlist, WishlistItem
 from django.contrib.auth.decorators import login_required
@@ -32,21 +32,31 @@ def add_to_wishlist(request, product_id):
     """
     user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
+    try:
+        wishlist = Wishlist.objects.get(user=user)
+    except:
+        wishlist = None
 
+    if wishlist:
+        if WishlistItem.objects.filter(product=product).exists():
+            messages.add_message(request, messages.ERROR, "You already have it in your wishlist.")
+            return HttpResponseRedirect(reverse('view_wishlist'))
     
-    wishlist = Wishlist.objects.create(user=user)
-
-    if WishlistItem.objects.filter(wishlist=wishlist, product=product_id).exists():
-        messages.add_message(request, messages.ERROR, "You already have it in your watchlist.")
-        return HttpResponseRedirect(reverse("auctions:index"))
+        wishlist_item = WishlistItem.objects.create(wishlist=wishlist, product=product)
+        wishlist_item.save()
+        messages.success(
+            request, f'Added {product.name} to your wishlist')
+    else:
+        wishlist = Wishlist.objects.create(user=user)
+        if WishlistItem.objects.filter(product=product).exists():
+            messages.error(request, f'You already have {product.name} in your wishlist.')
+            
+            return HttpResponse(status=500)
     
-    wishlist_item = WishlistItem.objects.create(wishlist=wishlist,
-                                                product=product)
-    wishlist_item.save()
-
-    messages.success(
-        request, f'Added {product.name} to your wishlist')
-
+        wishlist_item = WishlistItem.objects.create(wishlist=wishlist, product=product)
+        wishlist_item.save()
+        messages.success(
+            request, f'Added {product.name} to your wishlist')
     return redirect(reverse('view_wishlist'))
 
 

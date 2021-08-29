@@ -11,7 +11,7 @@ class Wishlist(models.Model):
                              on_delete=models.CASCADE, related_name='wishlist')
 
     def __str__(self):
-        return self.user
+        return f'wishlist ({self.user})'
 
 
 class WishlistItem(models.Model):
@@ -25,4 +25,4 @@ class WishlistItem(models.Model):
                                 related_name='product')
 
     def __str__(self):
-        return self.product
+        return f'Wishlist Item ({self.wishlist}) ({self.product})'

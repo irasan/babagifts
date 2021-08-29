@@ -35,7 +35,7 @@
                                 <a href="{% url 'product_detail' item.product.id %}">
                                 <p class="lead">{{ item.product.name }}</p>
                             </a>
-                                <a class="remove-item text-danger" id="remove_{{ item.product.id }}">
+                                <a class="remove-item text-danger" href="{% url 'remove_from_wishlist' item.product.id  %}">
                                     <small>Remove</small></a>
                             </td>
                             <td>
@@ -47,6 +47,8 @@
                 </table>
             </div>
         </div>
+
+        <!-- No items in the wishlist -->
         {% else %}
         <div class="col-12 col-lg-8">
             <p class="lead text-left my-5">You have no saved items</p>

@@ -33,8 +33,13 @@ def add_to_wishlist(request, product_id):
     user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
 
+    
     wishlist = Wishlist.objects.create(user=user)
 
+    if WishlistItem.objects.filter(wishlist=wishlist, product=product_id).exists():
+        messages.add_message(request, messages.ERROR, "You already have it in your watchlist.")
+        return HttpResponseRedirect(reverse("auctions:index"))
+    
     wishlist_item = WishlistItem.objects.create(wishlist=wishlist,
                                                 product=product)
     wishlist_item.save()
@@ -50,4 +55,11 @@ def remove_from_wishlist(request, product_id):
     """
     View to add products to wishlist
     """
+    product = get_object_or_404(Product, pk=product_id)
+    user = get_object_or_404(UserProfile, user=request.user)
+    wishlist = wishlist = user.wishlist.all()
+    wishlist_item = WishlistItem.objects.filter(product=product,
+                                                wishlist__in=wishlist).delete()
+    messages.success(request, f'Product {product.name} removed form wishlist!')
+
     return redirect(reverse('view_wishlist'))

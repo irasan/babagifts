@@ -67,3 +67,8 @@ def sub_history(request, sub_number):
     }
 
     return render(request, template, context)
+
+
+def auth_logout(request):
+  logout(request)
+  return redirect('home')

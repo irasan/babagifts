@@ -4,19 +4,6 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
-            <div class="col text-left">
-                <a href="{% url 'products' %}" class="btn btn-outline bg-peach">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="text-uppercase">Keep Shopping</span>
-                </a>
-                <a href="" class="btn btn-outline"><i class="far fa-heart"></i> Saved items ( )</a>
-                <hr>
-            </div>
-        </div>
-
         {% if bag_items %}
         <div class="row">
             <div class="col-12 col-lg-8">
@@ -123,9 +110,21 @@
         </div>    
         {% else %}
             <div class="row">
-                <p class="lead mb-5">Your bag is empty.</p>
+                <p class="lead mb-5 mt-5">Your bag is empty.</p>
             </div>
         {% endif %}
+        <hr>
+        <div class="row">
+            <div class="col text-left">
+                <a href="{% url 'products' %}" class="btn btn-outline bg-coral">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
+                <a href="{% url 'view_wishlist' %}" class="btn btn-outline"><i class="far fa-heart"></i> Saved items ( )</a>
+            </div>
+        </div>
     </div>
 {% endblock %}
 

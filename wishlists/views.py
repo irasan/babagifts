@@ -39,7 +39,7 @@ def add_to_wishlist(request, product_id):
 
     if wishlist:
         if WishlistItem.objects.filter(product=product).exists():
-            messages.add_message(request, messages.ERROR, "You already have it in your wishlist.")
+            messages.add_message(request, messages.ERROR, f'You already have {product.name} in your wishlist.')
             return HttpResponseRedirect(reverse('view_wishlist'))
     
         wishlist_item = WishlistItem.objects.create(wishlist=wishlist, product=product)

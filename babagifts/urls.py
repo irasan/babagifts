@@ -27,4 +27,5 @@ urlpatterns = [
     path('profiles/', include('profiles.urls')),
     path('wishlists/', include('wishlists.urls')),
     path('frequent_questions/', include('faqs.urls')),
+    path('contact/', include('contact.urls')),
 ]

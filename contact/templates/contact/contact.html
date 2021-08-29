@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="mb-4 mt-4">Contact Us</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 col-lg-6 offset-lg-3 mt-5">
+            <!--Form to submit message-->
+            <form method="POST" action="{% url 'contact' %}" class="form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="form-group">
+                    <button class="btn bg-coral" type="submit">
+                        Send
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

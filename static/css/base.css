@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-    height: 80px;
+    min-height: 80px;
     font-size: 1.3rem;
 }
 
@@ -60,6 +60,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-toggler {
     margin-left: 8px;
+}
+
+.dropdown-menu {
+    position: absolute;
 }
 
 .bag-items-quantity {

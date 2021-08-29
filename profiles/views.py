@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile
-from .forms import UserProfileForm
 
+from .forms import UserProfileForm
+from wishlists.contexts import wishlist_count
+
+from .models import UserProfile
 from checkout.models import Order
 from subscriptions.models import SubActive
 
@@ -12,6 +14,7 @@ from subscriptions.models import SubActive
 def profile(request):
     """ Display the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
+    count = wishlist_count(request)['items_count']
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -31,6 +34,7 @@ def profile(request):
         'form': form,
         'orders': orders,
         'subscriptions': subscriptions,
+        'wishlist_count': count,
     }
 
     return render(request, template, context)

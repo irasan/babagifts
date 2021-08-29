@@ -2,13 +2,19 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, get_object
 from django.contrib import messages
 
 from products.models import Product
+from wishlists.contexts import wishlist_count
 
 
 # Create your views here.
 def view_bag(request):
     """ A view that renders the bag contents page """
 
-    return render(request, 'bag/bag.html')
+    count = wishlist_count(request)['items_count']
+    context = {
+        'count': count,
+    }
+
+    return render(request, 'bag/bag.html', context)
 
 
 def add_to_bag(request, item_id):

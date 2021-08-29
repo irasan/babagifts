@@ -2,60 +2,62 @@
 {% load static %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="mb-4">Wishlist</h2>
-                <hr>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="mb-4 mt-4">Wishlist</h2>
+            <hr>
         </div>
-        <div class="row">
-            {% if wishlist_items %}
-            <div class="col-12 col-lg-8">
-                <div class="table-responsive table-borderless rounded">
-                    <table class="table">
-                        <thead>
+    </div>
+    <div class="row">
+        {% if wishlist_items %}
+        <div class="col-12 col-lg-8">
+            <div class="table-responsive table-borderless rounded">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <th scope="col" colspan="2"><h2>Your saved items</h2></th>
+                            <th scope="col" colspan="2">
+                                <h2>Your saved items</h2>
+                            </th>
                             <th scope="col">Price</th>
                         </tr>
-                        </thead>
-                        {% for item in wishlist_items %}
-                        <tbody>
+                    </thead>
+                    {% for item in wishlist_items %}
+                    <tbody>
                         <tr>
                             <td class="w-25">
-                                <img class="img-fluid rounded" src="{{ item.product.image_url }}">
+                                <a href="{{ item.product.image_url }}" target="_blank">
+                                    <img class="img-fluid rounded" src="{{ item.product.image_url }}">
+                                </a>
                             </td>
-                            <td class="text-left"><p class="lead">{{ item.product.name }}</p>
-                                <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
+                            <td class="text-left">
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                <p class="lead">{{ item.product.name }}</p>
+                            </a>
+                                <a class="remove-item text-danger" id="remove_{{ item.product.id }}">
                                     <small>Remove</small></a>
                             </td>
                             <td>
-                                €{{ item.price }}
+                                €{{ item.product.price }}
                             </td>
                         </tr>
                         {% endfor %}
-                        <tr>
-                            <td colspan="5" class="pt-5 text-right">
-                                <h6><strong>Bag Total: €{{ total|floatformat:2 }}</strong></h6>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
-            {% else %}
-            <div class="col-12 col-lg-8">
-                <p class="lead text-left my-5">You have no saved items</p>
-                <a href="{% url 'products' %}" class="btn btn-outline bg-peach text-left">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="text-uppercase">All Products</span>
-                </a>
-            </div>
-            {% endif %}
         </div>
+        {% else %}
+        <div class="col-12 col-lg-8">
+            <p class="lead text-left my-5">You have no saved items</p>
+            <a href="{% url 'products' %}" class="btn btn-outline bg-peach text-left">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">All Products</span>
+            </a>
+        </div>
+        {% endif %}
     </div>
+</div>
 {% endblock %}

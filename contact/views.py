@@ -11,17 +11,17 @@ def contact(request):
     """
     if request.method == 'POST':
         form = ContactForm(request.POST)
+        user_email = request.POST.get('email')
         user_message = request.POST.get('message')
         subject = request.POST.get('subject')
+        
         if form.is_valid():
-
-            # sending email to admin following a contact form submission
             send_mail(
                 subject,
                 user_message,
-                settings.DEFAULT_FROM_EMAIL,
+                user_email,
                 [settings.DEFAULT_FROM_EMAIL],
-                fail_silently=False,)
+                )
 
             messages.success(request, 'Your message has been sent!')
             return redirect(reverse('contact'))

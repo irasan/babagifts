@@ -207,6 +207,16 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+/* about page */
+.parallax {
+    background-image: url("../images/about.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* ------------------------------- bootstrap toasts */
 .message-container {
     position: fixed;

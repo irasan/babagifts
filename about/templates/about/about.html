@@ -2,13 +2,67 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="mb-4 mt-4">About Us</h2>
-            <hr>
+<section>
+    <div class="parallax">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="mb-4 mt-4">About Us</h2>
+                <hr>
+            </div>
+            <div class="mb-2 mt-4">
+                <p>BabaGifts is a family run business based in Dublin, Ireland. It was founded back in 2014 when
+                    our beautiful daughter Leila was born. We wanted to dress her in pretty clothes and matching
+                    accessories to show her off to the world. We also cared about the quality of the things we put
+                    on her and preferred less items that would last for longer instead of mass shopping of poor quality
+                    items.<br>
+                    The shoes and hairbands that were available for babies fell short of both fabric quality and design,
+                    and we were
+                    left searching the internet.
+                    <hr>
+                    <span class="lead">Herein started the journey of BabaGifts..</span><br>
+                    <hr>
+                    We handcraft shoes, hair bows, crowns and more from the softest leather. All our items are made to
+                    order to best match
+                    our clients' needs. Please feel free to send us an email with any special requirements or questions
+                    you may have.
+                </p>
+            </div>
         </div>
     </div>
-</div>
+</section>
+
+<section class="container">
+    <div class="section-center bg-coral mb-5">
+        <h2>Join our newsletter</h2>
+        <p>Exclusive access to products, special offers & all the important updates.</p>
+        <form>
+            <div class="form-group">
+                <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Email"
+                    required />
+            </div>
+            <button type="submit" class="btn btn-lg light-button bg-peach signup-btn">
+                Sign Up
+            </button>
+        </form>
+    </div>
+    <hr>
+</section>
+
+<section class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <a href="{% url 'products' %}">
+                    <img class="img-fluid" src="{% static 'images/shoes.jpg' %}" alt="shoes">
+                    <span class="btn btn-outline mt-3 mb-5">See our products range</span></a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="{% url 'all_subscriptions' %}">
+                    <img class="img-fluid" src="{% static 'images/subscriptions.JPG' %}" alt="hairbows">
+                    <span class="btn btn-outline mt-3 mb-5">See our subscriptions</span></a>
+            </div>
+        </div>
+</section>
 {% endblock %}

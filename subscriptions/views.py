@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 
@@ -42,6 +43,7 @@ def cache_subscribe_data(request):
         return HttpResponse(content=e, status=400)
 
 
+@login_required
 def subscribe(request, subscription_id):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -110,6 +112,7 @@ def subscribe(request, subscription_id):
     return render(request, template, context)
 
 
+@login_required
 def confirm_sub(request, sub_number):
     """
     Handle successful subscribes

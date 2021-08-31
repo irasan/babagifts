@@ -1,8 +1,8 @@
 # Baba Gifts
 
-View the live project [here]()
+View the live project [here](http://babagifts.herokuapp.com/)
 
-This is an eCommerce site of baby gifts. It is fully responsive and accessible on a range of devices, making it easy to navigate for potential clients. It was created using Django framework and Stripe functionality.
+This is an eCommerce store with Stripe integrated payment processing. It is fully responsive and accessible on a range of devices, making it easy to navigate for potential clients. It was created using Django framework.
 
 # User Experience (UX)
 * ## User stories
@@ -29,8 +29,19 @@ Admin | add new, edit or delete categories.
 
 * ## Design
     * ### Color scheme
+    The following color pallete was created using [Coolors](https://coolors.co/) I chose soft pinkish colors to emphasize 
+    the theme and stimulate purchases.
+    ![color-pallete](static/images/color-pallete.png)
+
     * ### Typography
+    This project uses Montserrat and Style Script fonts, provided by [Google Fonts](https://fonts.google.com/)
+
     * ### Imagery 
+    Most of the pictures are from private collections, while some were downloaded from [Pexels](https://www.pexels.com/)
+
+    * ### Icons
+    Icons are used throughout this website in an attempt to increase UX design where possible. All icons were taken
+    from [FontAwesome](https://fontawesome.com/)
 
 * ## Wireframes
 * Wireframes for large screens - [view](https://github.com/irasan/babagifts/blob/master/assets/wireframes/desktop_view.pdf)

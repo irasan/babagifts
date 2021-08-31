@@ -26,7 +26,7 @@ if "SECRET_KEY" in os.environ:
     SECRET_KEY = os.environ.get("SECRET_KEY", "")
 else:
     # Fake Key That Can Be Used In Testing Locally
-    SECRET_KEY = "django-insecure-9sft4$7)s60g6qs_4(w+6uep*+^h#84fw(s6yy2)_!t(bet4!j"
+    SECRET_KEY = "django-insecure-xn3x(^*40if(gh8)azs@b_or!%d+0+ns*ga$kys-vy5eioup#7"
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -138,7 +138,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'NAME':  BASE_DIR / 'db.sqlite3',
         }
     }
 

@@ -3,7 +3,6 @@ from django.db import models
 from django_countries.fields import CountryField
 
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
 
 from profiles.models import UserProfile
 

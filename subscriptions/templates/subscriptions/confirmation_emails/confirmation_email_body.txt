@@ -1,0 +1,22 @@
+Hello {{ sub_active.full_name }}!
+
+This is a confirmation of your subscription to BabaGifts. Your order information is below:
+
+Subscription Number: {{ sub_active.order_number }}
+Subscription Start Date: {{ sub_active.date }}
+Subscription End Date: {{ sub_active.end_date }}
+
+Order Total: €{{ sub_active.sub_total }}
+
+Your order will be shipped to {{ sub_active.street_address1 }} in {{ sub_active.town_or_city }}, {{ sub_active.country }}
+during the last seven days of the month.
+
+We've got your phone number on file as {{ sub_active.phone_number }}.
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+Thank you for your order!
+
+Sincerely,
+
+BabaGifts

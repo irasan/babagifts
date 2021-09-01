@@ -5,6 +5,8 @@ from django.db.models import Q
 
 from .models import Product
 from .forms import ProductForm
+from wishlists.models import Wishlist, WishlistItem
+from profiles.models import UserProfile
 
 
 # Create your views here.
@@ -12,6 +14,15 @@ def all_products(request):
     """ A view to show all products, including search queries """
 
     products = Product.objects.all()
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        wishlist = get_object_or_404(Wishlist, user=profile)
+        for product in products:
+            product.in_wishlist = WishlistItem.objects.filter(
+                wishlist=wishlist, product=product)
+            product.save()
+
     query = None
 
     if request.GET:
@@ -36,9 +47,21 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    in_wishlist = bool(False)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        wishlist = get_object_or_404(Wishlist, user=profile)
+        items = WishlistItem.objects.filter(
+            wishlist=wishlist, product=product)
+        if items:
+            in_wishlist = bool(True)
+        else:
+            in_wishlist = bool(False)
 
     context = {
         'product': product,
+        'in_wishlist': in_wishlist,
     }
 
     return render(request, 'products/product_detail.html', context)

@@ -54,12 +54,11 @@
                             <small class="text-muted">No Rating</small>
                             {% endif %}
                             <div class="d-flex justify-content-center mt-2">
-                                <a href="{% url 'subscribe' s.id %}" class="btn bg-coral">Subscribe</a>
+                                <a href="{% url 'subscribe' s.id %}" class="btn bg-coral" 
+                                data-bs-toggle="tooltip" data-bs-placement="right" title="You must be logged in to subscribe">
+                                Subscribe</a>
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>

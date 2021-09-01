@@ -30,3 +30,6 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('about/', include('about.urls')),
 ]
+
+handler404 = "babagifts.views.Not_Found"
+

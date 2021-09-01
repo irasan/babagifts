@@ -32,7 +32,7 @@
                                 </a>
                             </td>
                             <td class="text-left">
-                                <a class="wishlist-name" href="{% url 'product_detail' item.product.id %}">
+                                <a class="wishlist" href="{% url 'product_detail' item.product.id %}">
                                 <p class="lead">{{ item.product.name }}</p>
                             </a>
                                 <a class="remove-item text-danger" href="{% url 'remove_from_wishlist' item.product.id  %}">

@@ -38,7 +38,9 @@
                                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                                 {% endif %}
                                                 {% endif %}
-
+                                                <a class="wishlist" data-bs-toggle="tooltip" data-bs-placement="top" title="Save item" href="{% url 'add_to_wishlist' product.id %}">
+                                                    <i class="far fa-heart"></i>
+                                                </a>
                                             </div>
                                             {% if product.rating %}
                                                 <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>

@@ -218,7 +218,7 @@ input[type=number] {
 }
 
 /* wishlist page */
-.wishlist-name:hover {
+.wishlist:hover {
     color: #EC5B5B;
     text-decoration: none;
 }

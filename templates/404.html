@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mt-4 mb-4">Ooops, something went wrong!</h2>
+            <hr>
+            <p>Sorry we couldn't find what you are looking for.</p>
+            <a href="{% url 'home' %}" class="btn btn-outline bg-coral">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Go to home page</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

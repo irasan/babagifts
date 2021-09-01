@@ -120,9 +120,10 @@
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>
-                    <span class="text-uppercase">Keep Shopping</span>
+                    <span>Keep Shopping</span>
                 </a>
-                <a href="{% url 'view_wishlist' %}" class="btn btn-outline"><i class="far fa-heart"></i> Saved items ({{ count }})</a>
+                <a href="{% url 'view_wishlist' %}" class="btn btn-outline">
+                    <i class="far fa-heart"></i> Saved items ({{ count }})</a>
             </div>
         </div>
     </div>

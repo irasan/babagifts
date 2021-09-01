@@ -16,17 +16,23 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-5">
+                <!-- Button for wishlist on small screens -->
+                <div class="text-left mb-3 d-lg-none">
+                    <a href="{% url 'view_wishlist' %}" class="btn btn-outline bg-coral">
+                        <i class="far fa-heart"></i> Saved items ({{ wishlist_count }})</a>
+                </div>
                 <p class="text-muted">Default Account Info</p>
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="btn bg-wine text-white float-right">Update Information</button>
+                    <button class="btn bg-wine text-white float-right mb-5">Update Information</button>
                 </form>
             </div>
             <div class="col-12 col-lg-7">
                 <!-- Button for wishlist -->
-                <div class="text-right mb-3">
-                    <a href="{% url 'view_wishlist' %}" class="btn bg-coral"><i class="far fa-heart"></i> Saved items ({{ wishlist_count }})</a>
+                <div class="text-right mb-3 d-none d-lg-block">
+                    <a href="{% url 'view_wishlist' %}" class="btn btn-outline bg-coral">
+                        <i class="far fa-heart"></i> Saved items ({{ wishlist_count }})</a>
                 </div>
                 <!-- Active subscriptions if any -->
                 {% if subscriptions %}

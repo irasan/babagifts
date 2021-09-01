@@ -3,10 +3,9 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 
-from subscriptions.models import Subscription, SubActive
+from subscriptions.models import SubActive
 from profiles.models import UserProfile
 
-import json
 import time
 
 
@@ -25,13 +24,13 @@ class StripeWH_Handler:
         body = render_to_string(
             'subscriptions/confirmation_emails/confirmation_email_body.txt',
             {'sub_active': sub_active, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
+
         send_mail(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        )        
+        )
 
     def handle_event(self, event):
         """

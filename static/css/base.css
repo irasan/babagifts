@@ -217,6 +217,11 @@ input[type=number] {
     background-size: cover;
 }
 
+/* wishlist page */
+.wishlist-name:hover {
+    color: #EC5B5B;
+}
+
 /* ------------------------------- bootstrap toasts */
 .message-container {
     position: fixed;

@@ -8,12 +8,14 @@ from wishlists.contexts import wishlist_count
 # Create your views here.
 def view_bag(request):
     """ A view that renders the bag contents page """
+    if request.user.is_authenticated: 
+        count = wishlist_count(request)['items_count']
+    else:
+        count = 0
 
-    count = wishlist_count(request)['items_count']
     context = {
         'count': count,
     }
-
     return render(request, 'bag/bag.html', context)
 
 

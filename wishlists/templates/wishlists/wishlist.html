@@ -32,8 +32,8 @@
                                 </a>
                             </td>
                             <td class="text-left">
-                                <a href="{% url 'product_detail' item.product.id %}">
-                                <p class="lead wishlist-name">{{ item.product.name }}</p>
+                                <a class="wishlist-name" href="{% url 'product_detail' item.product.id %}">
+                                <p class="lead">{{ item.product.name }}</p>
                             </a>
                                 <a class="remove-item text-danger" href="{% url 'remove_from_wishlist' item.product.id  %}">
                                     <small>Remove</small></a>
@@ -67,7 +67,13 @@
             <span class="icon">
                 <i class="fas fa-chevron-left"></i>
             </span>
-            <span class="text-uppercase">Back to Products</span>
+            <span class="text-uppercase">To All Products</span>
+        </a>
+        <a href="{% url 'profile' %}" class="btn btn-outline bg-peach">
+            <span class="text-uppercase">My profile</span>
+            <span class="icon">
+                <i class="fas fa-chevron-right"></i>
+            </span>
         </a>
     </div>
 </div>

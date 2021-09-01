@@ -220,6 +220,12 @@ input[type=number] {
 /* wishlist page */
 .wishlist-name:hover {
     color: #EC5B5B;
+    text-decoration: none;
+}
+
+.wishlist {
+    position: absolute;
+    right: 2%;
 }
 
 /* ------------------------------- bootstrap toasts */
@@ -249,10 +255,6 @@ input[type=number] {
     position: relative;
 }
 
-.wishlist {
-    position: absolute;
-    right: 2%;
-}
 
 /* -------------------------------- Media Queries */
 

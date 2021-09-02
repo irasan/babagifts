@@ -35,6 +35,8 @@ Shopper | save my details for future purchases.
 Registered user | update my saved information.
 Registered user | delete my account.
 Registered user | see my previous purchases.
+Registered user | save items to a wishlist.
+Registered user | see my wishlist and delete items from it.
 Admin | add new, edit or delete products.
 Admin | add new, edit or delete categories.
 
@@ -122,6 +124,67 @@ The site is linked with the SQlite3 database in development and PostgreSQL in pr
 
 ### Collections Data Structure
 This website relies on 2 different collections - Products and Subscriptions. 
+
+
+## Testing
+### Testing Using Validators
+Upon completion of the writing process, developer used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/),
+[W3C MarkUp Validation Service](https://validator.w3.org/), and [PEP8 online](http://pep8online.com/) to check the validity of the code. 
+![CSS validation](https://github.com/irasan/read-to-me/blob/master/assets/readme-images/css-validated.png)
+![JS validation](https://github.com/irasan/read-to-me/blob/master/assets/readme-images/js.png)
+![PEP8 validation](https://github.com/irasan/read-to-me/blob/master/assets/readme-images/pep8.png)
+
+### Manual Testing
+The website was continuously tested on emulated large and small screens when writing the code. 
+Manual testing was used to test navigation, responsiveness on different screen sizes, database operations 
+(Create, Read, Update and Delete) and application functions.
+
+### Client Stories Testing
+All client stories developed in the beginning of the project were tested. Only two of them were not fulfilled:
+* As a shopper I want easily see the total of my purchases at any time - the total quantity was replaced with items count
+in the shopping bag. Its is always seen beside the bag icon in the navbar.
+* As a registered user I want to be able to delete my account - this was left for future development.
+
+#### Test cases
+Here's a list of some test cases that were done (a small part of them):
+1. A user can register an account with unique username - Pass;
+1. A user cannot register an account with a username that already exists in the database - Pass;
+1. Registered user can login and logout using their credentials - Pass;
+1. Registered user can save their default info to profile - Pass;
+1. User can see a list of products - Pass;
+1. User can go to product page and see it's details - Pass; 
+1. User can add products to shopping bag - Pass;
+1. User can see items in the shopping bag - Pass;
+1. User can update quantity or delete items from the shopping bag - Pass;
+1. Delivery costs are calculated correctly - Pass;
+1. Logged in user can make a purchase - Pass;
+1. Anonymous user can make a purchase - Pass;
+1. User can see a list of subscriptions - Pass;
+1. Only registered users can buy a subscription - Pass;
+1. Registered user can add products to a wishlist on the main product page or on the product details page - Pass;
+1. Registered user can see what items on the main product page are already in the wishlist - Pass;
+1. Registered user can see items in the wishlist on the wishlist page - Pass;
+1. Anonymous user cannot create a wishlist, but can see such an option - Pass; 
+1. User can send email using contact form - Pass;
+1. Admin can add and update products/subscriptions through website - Pass;
+1. Admin can add and update products/subscriptions in the admin panel - Pass;
+1. Admin can delete products with a prompt for confirmation - Pass;
+1. User can search products and subscriptions - Pass; 
+1. All links are valid and redirect to the proper page - Pass.
+
+### Testing on Different Browsers and Devices
+The website was tested and proved to be issue-free on the following browsers:
+* Chrome;
+* Edge;
+* Firefox;
+* Safari.
+
+The website was also tested on an IOS (Iphone 10) and Android (Pixel 4) devices. There were detected a few issues, in particular:
+* contact form was not centered;
+* Shop now button on the home page was too big;
+* subscription page was not displayed nicely with some extra margins and poor centering;
+All issues stated above were addressed and fixed.
+
 
 ## Credits
 This project was created by following the Code Institute tutorials for the Boutique Ado Django Mini-Project, and customised to meet its unique requirements.

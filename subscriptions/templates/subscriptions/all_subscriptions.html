@@ -13,7 +13,7 @@
         <div class="sub-heading">
             <h2 class="d-inline d-md-none">Hair bow subscriptions</h2>
         </div>
-        <div class="sub-inner">
+        <div class="sub-inner d-none d-md-block">
             <p>Take the guess-work out of choosing the perfect bows + save some money while you’re at it!
                 If you’re into getting a box of fun delivered straight to your doorstep each month, then our
                 bow subscription box is for you! As a monthly subscriber, you’ll get three hand-picked bows that
@@ -22,6 +22,13 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-10 offset-1 d-md-none mt-3">
+            <p>Take the guess-work out of choosing the perfect bows + save some money while you’re at it!
+                If you’re into getting a box of fun delivered straight to your doorstep each month, then our
+                bow subscription box is for you! As a monthly subscriber, you’ll get three hand-picked bows that
+                we’re obsessed with, and we know you will be too!</p>
+            <a href="{% anchor 'all_subscriptions' 'subs' %}" class="btn btn-lg btn-outline bg-coral mb-5">Shop now</a>
+        </div>
         <h4 class="col-10 offset-1 mt-3">Our monthly bow subscription boxes include our newest bows that aren't released yet, 
             so your little babe will be the first one rockin’ the latest designs!</h4>
         <div class="col mt-3 p-5 lead bg-peach">
@@ -85,7 +92,7 @@
         {% endif %}
         {% endfor %}
         <div class='col'>
-            <p class="lead border bg-peach">Plase note: You must be a registered user in order to subscribe!</p>
+            <p class="lead text-danger rounded bg-peach p-2">Plase note: You must be a registered user in order to subscribe!</p>
         </div>
     </div>
 </section>

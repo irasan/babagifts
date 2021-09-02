@@ -14,7 +14,7 @@ def contact(request):
         user_email = request.POST.get('email')
         user_message = request.POST.get('message')
         subject = request.POST.get('subject')
-        
+
         if form.is_valid():
             send_mail(
                 subject,

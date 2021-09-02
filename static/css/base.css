@@ -223,7 +223,8 @@ input[type=number] {
 }
 
 /* wishlist page */
-.wishlist:hover {
+.wishlist:hover,
+.wishlist-item:hover {
     color: #EC5B5B;
     text-decoration: none;
 }

@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         {% if wishlist_items %}
-        <div class="col-12 col-lg-8 offset-lg-2">
+        <div class="col-12 col-lg-10 offset-lg-1">
             <div class="table-responsive table-borderless rounded">
                 <table class="table">
                     <thead>
@@ -32,7 +32,7 @@
                                 </a>
                             </td>
                             <td class="text-left">
-                                <a class="wishlist" href="{% url 'product_detail' item.product.id %}">
+                                <a class="wishlist-item" href="{% url 'product_detail' item.product.id %}">
                                     <p class="lead">{{ item.product.name }}</p>
                                 </a>
                                 <a class="remove-item text-danger" href="{% url 'remove_from_wishlist' item.product.id  %}">

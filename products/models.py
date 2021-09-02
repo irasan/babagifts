@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Product(models.Model):
-    sku = models.CharField(max_length=254, null=True, blank=True)
+    sku = models.CharField(max_length=254)
     name = models.CharField(max_length=254)
     description = models.TextField()
     has_sizes = models.BooleanField(default=False, null=True, blank=True)

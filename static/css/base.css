@@ -234,6 +234,11 @@ input[type=number] {
     right: 2%;
 }
 
+.btn-group-sm>.btn, .btn-sm {
+    padding: 2px;
+}
+
+
 /* ------------------------------- bootstrap toasts */
 .message-container {
     position: fixed;
@@ -276,4 +281,4 @@ input[type=number] {
     .search-field:focus {
         width: 100px;
     }
-  } 
+} 

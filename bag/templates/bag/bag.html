@@ -4,6 +4,13 @@
 
 {% block content %}
     <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mt-4 mb-4">Your secure shopping bag</h2>
+                <hr>
+            </div>
+        </div>
         {% if bag_items %}
         <div class="row">
             <div class="col-12 col-lg-8">
@@ -11,7 +18,7 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col" colspan="2"><h2>Your secure shopping bag</h2></th>
+                            <th scope="col" colspan="2">Item(s)</th>
                             <th scope="col">Price</th>
                             <th scope="col">Qty</th>
                             <th scope="col">Subtotal</th>

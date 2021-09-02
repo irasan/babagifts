@@ -185,6 +185,115 @@ The website was also tested on an IOS (Iphone 10) and Android (Pixel 4) devices.
 * subscription page was not displayed nicely with some extra margins and poor centering;
 All issues stated above were addressed and fixed.
 
+## Deployment
+### Requirements To Deploy:
+* Amazon AWS Account
+* Heroku Account
+
+### Cloning This Project:
+To create a clone, follow the following steps.
+1. Log in to GitHub and go to the repository.
+1. Click on the button with the text “Code”.
+1. Click “Open with GitHub Desktop” and follow the prompts in the GitHub Desktop Application or follow the instructions from GitHub to see how to clone the repository in other ways.
+
+#### To Work With Your Local Clone:
+1. Install the requirements from "requirements.txt" (using pip install).
+1. Build a new database using "python3 manage.py makemigrations" & "python3 manage.py migrate" commands.
+1. Create a new superuser using the "python3 manage.py createsuperuser" and follow the steps.
+1. Run the django application using the "python3 manage.py runserver" command.
+1. Login using your superuser credentials by adding "/admin" to the url.
+1. From the admin panel, you can quickly create, read, update & delete records including products, users, email lists and more.
+
+### Deploying To Heroku & AWS
+Static files for this project are hosted on AWS, however postgres database and app functionality are provided by Heroku. This section will walk through the complete deployment sequence for both Heroku & AWS.
+
+To deploy this application on Heroku, we are required to have a requirements.txt file as well as a Procfile. These files will allow Heroku understand what dependencies are required, as well as tell Heroku which file to run, in order to launch the web application.
+
+* Create a procfile: in terminal type "echo web: python run.py > Procfile". You will create a file with "web: python app.py" inside.
+* Create a requirements file: type "pip freeze --local > requirements.txt". This file will hold a list of all dependencies required for this project.
+* Save and commit changes to GitHub.
+* Open Heroku and login or sign up.
+* Create a new app and select the desired region.
+* Connect Github to Heroku via the dashboard link "Deploy". Go to "Deployment method" and choose "GitHub", find your repository name listed and select it.
+* Once connected to GitHub repository, navigate to the "Settings" tab and reveal "Config Vars".
+* Create environment variables with your data (ensure names match those in settings.py):
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+DATABASE_URL
+EMAIL_HOST_PASSWORD
+EMAIL_HOST_USER
+SECRET_KEY
+STRIPE_PUBLIC_KEY
+STRIPE_SECRET_KEY
+STRIPE_WH_SECRET
+USE_AWS 
+* Now enable "Automatic deploys" and wait till build is complete.
+* Click "View" to lunch the app. It won't look nice as static files are stored in AWS.
+
+### For Deployment To AWS (S3 Bucket):
+* Log in or sign up to [Amazon AWS](https://signin.aws.amazon.com/) console.
+* Under the "AWS services" search box, type "S3" and click the associated service.
+* Click "Create Bucket" button, provide a name, and the closest region.
+* Uncheck the "Block all public access" checkbox & acknowledge the bucket will be public.
+* Click "create bucket" at the end of the form.
+* Go to the bucket and click the "Properties" tab; select "static website hosting".
+* In the box that pops up, click "Use this bucket to host a website".
+* Type "index.html" and "error.html" for the index document & error document fields and save.
+* Click on the "Permissions" tab and click on "CORS configuration".
+* Paste in the following code into the area provided:
+``` 
+[ { "AllowedHeaders": [ "Authorization" ], 
+    "AllowedMethods": [ "GET" ], 
+    "AllowedOrigins": [ "*" ], 
+    "ExposeHeaders": [] } 
+] 
+```
+* Click on Bucket policy, copy the "ARN" identifier, then select "Policy Generator".
+* Use the following settings for the form:
+Policy Type: S3 Bucket Policy,
+Add Statements: Effect: "allow", 
+Principal: "*", 
+Actions: "GetObject" 
+ARN: Paste your ARN
+
+* Click "Add Statement", then "Generate Policy".
+* Copy the generated policy and paste it back into the bucket policy editor.
+* Add "/*" to the end of the "Resource" part of the code and click save.
+* Click on the Access Control List under the "Permissions" tab.
+* Under the "Everyone (public access)" click the "List Objects", aknowledge that you confirm it & "Save".
+
+Your AWS S3 is now configured. To grant specific access, now follow these steps to allow controlled access via the IAM service on AWS.
+
+* Click on the "Services" tab on the top left of the page and search for "IAM".
+* Navigate to the IAM dashboard and under the "Access Management" tab, select "Groups".
+* Create a new group by providing a name, then click "next" without any further configuration & "Create Group".
+* Click "Policies" under the "Access Management" tab anf then click "Create Policy".
+* Open the JSON tab and click "Import Managed Policy".
+* Select the "AmazonS3FullAccess" option and click "Import".
+Now to only allow specific access to the project bucket. In a new tab go back to the S3 bucket and copy the "ARN" again from the bucket policy page.
+Now in the JSON Policy for the IAM group, next to resources remove the "/*" and add the following:
+```
+"Resource": [ 
+   "arn: YOUR ARN CODE",
+   "arn: YOUR ARN CODE/*",
+]
+```
+* Click "Review Policy"
+* Provide a name and description and click "Create Policy"
+* Click on "Groups" under the Access Management section.
+* Select the group you have created for this project.
+* Under Permissions, click "Attach Policy", select the one that has just been created and click "Attach Policy".
+
+#### Now add a user to the group
+
+* Click the "Users" from under the Access Management section and select "Add User".
+* Provide a user name, and select "Programmatic access".
+* Click next for permissions.
+* Select the group for the project using the checkbox provided.
+* Click all the way through to the end without changing any further details.
+* At the end of the form you will be given user credentials - download CSV file with user access keys.
+* To finalize the setup, add your access keys to the environment variables in the Heroku Config Variables. This will allow your Django application to use these settings on the deployed project.
+
 
 ## Credits
 This project was created by following the Code Institute tutorials for the Boutique Ado Django Mini-Project, and customised to meet its unique requirements.

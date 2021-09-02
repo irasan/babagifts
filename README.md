@@ -1,5 +1,5 @@
 # Baba Gifts
-![subscription-page](static/images/subscription-page.png)
+![subscription-page](static/images/home-page.png)
 
 
 This is an eCommerce store with Stripe integrated payment processing. It is fully responsive and accessible on a range of devices, making it easy to navigate for potential clients. It was created using Django framework and hosted on Heroku.
@@ -117,6 +117,8 @@ changes depending on user being logged in or not. If the user is not logged the 
 * [Jinja](https://jinja.palletsprojects.com/) to simplify displaying data from the backend of this project smoothly and effectively in html;
 * [Bootstrap](https://getbootstrap.com/) to simplify styling of the website and make it responsive easily;
 * [Django](https://www.djangoproject.com/) to build the project.
+* [Am I Responsive](http://ami.responsivedesign.is/) to create the images in this readme file of each page displayed on different screen sizes.
+
 
 
 ## Information Architecture
@@ -132,10 +134,7 @@ between users and website.
 ## Testing
 ### Testing Using Validators
 Upon completion of the writing process, developer used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/),
-[W3C MarkUp Validation Service](https://validator.w3.org/), and [PEP8 online](http://pep8online.com/) to check the validity of the code. 
-![CSS validation](https://github.com/irasan/read-to-me/blob/master/assets/readme-images/css-validated.png)
-![JS validation](https://github.com/irasan/read-to-me/blob/master/assets/readme-images/js.png)
-![PEP8 validation](https://github.com/irasan/read-to-me/blob/master/assets/readme-images/pep8.png)
+[W3C MarkUp Validation Service](https://validator.w3.org/), and [PEP8 online](http://pep8online.com/) to check the validity of the code. Code passed the tests with some errors that cannot be fixed. For example, too long lines that cannot be shortened or split in two. 
 
 ### Manual Testing
 The website was continuously tested on emulated large and small screens when writing the code. 
@@ -313,3 +312,10 @@ Tutorial on how to link to different section of the same page from [here](https:
 How to calculate some date in the [future](https://stackoverflow.com/questions/546321/how-do-i-calculate-the-date-six-months-from-the-current-date-using-the-datetime)
 
 [Parallax effect](https://www.w3schools.com/howto/howto_css_parallax.asp)
+
+## Previews
+
+![subscription-page](static/images/subscription-page.png)
+
+
+![product-page](static/images/product-page.png)

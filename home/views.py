@@ -10,7 +10,8 @@ def index(request):
     if request.method == 'POST':
         user_email = request.POST.get('email')
         subject = "New newsletter Subscriber"
-        message = "Please add this email address to your newsletter"
+        message = f'Please add this email {user_email} address to your \
+            newsletter'
 
         if user_email:
             send_mail(

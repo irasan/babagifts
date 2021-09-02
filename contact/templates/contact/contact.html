@@ -11,7 +11,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-10 col-lg-6 offset-lg-3 mt-5">
+        <div class="col-10 offset-1 col-lg-6 offset-lg-3">
+            <p>If you have any queries or would like to send us a message, please fill the form below</p>
             <!--Form to submit message-->
             <form method="POST" action="{% url 'contact' %}" class="form">
                 {% csrf_token %}

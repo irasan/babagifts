@@ -1,8 +1,10 @@
 # Baba Gifts
+![subscription-page](static/images/subscription-page.png)
 
-View the live project [here](http://babagifts.herokuapp.com/)
 
 This is an eCommerce store with Stripe integrated payment processing. It is fully responsive and accessible on a range of devices, making it easy to navigate for potential clients. It was created using Django framework and hosted on Heroku.
+
+View the live project [here](http://babagifts.herokuapp.com/)
 
 ## User Experience (UX)
 ### Developer's Goals
@@ -105,7 +107,6 @@ changes depending on user being logged in or not. If the user is not logged the 
 * [Heroku](https://www.heroku.com/) and Postgres database for deployment;
 * [Balsamiq](https://balsamiq.com/) was used to create wireframes for the project;
 * [Favicon generator](https://www.favicon-generator.org/) was used to generate the favicon;
-* [Am I Responsive](http://ami.responsivedesign.is/) to create the images in this readme file of each page displayed on different screen sizes.
 * [Stripe](https://stripe.com/) is used to handle payments for the website.
 * [AWS S3](https://aws.amazon.com/) for storing static files.
 
@@ -123,7 +124,9 @@ changes depending on user being logged in or not. If the user is not logged the 
 The site is linked with the SQlite3 database in development and PostgreSQL in production to allow users to easily obtain information needed. Static files are hosted on AWS.
 
 ### Collections Data Structure
-This website relies on 2 different collections - Products and Subscriptions. 
+This website relies on 2 different pre-filled tables - Products and Subscriptions. All other tables are created during interaction
+between users and website.
+![ER-Schema](static/images/babagifts-ER.png)
 
 
 ## Testing

@@ -12,7 +12,7 @@ def index(request):
         subject = "New newsletter Subscriber"
         message = "Please add this email address to your newsletter"
 
-        if user_email.is_valid():
+        if user_email:
             send_mail(
                 subject,
                 message,
@@ -21,7 +21,7 @@ def index(request):
                 )
 
             messages.success(request, 'Your message has been sent!')
-            return redirect(reverse('contact'))
+            return redirect(reverse('home'))
         else:
             messages.error(request, 'Message was not sent. Try again.')
 

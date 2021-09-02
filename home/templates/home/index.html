@@ -38,7 +38,7 @@
     <div class="section-center bg-coral">
         <h2>Join our newsletter</h2>
         <p>Exclusive access to products, special offers & all the important updates.</p>
-        <form method="POST" action="{% url 'index' %}" class="form">
+        <form method="POST" action="{% url 'home' %}" class="form">
             {% csrf_token %}
             <div class="form-group">
                 <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Email"

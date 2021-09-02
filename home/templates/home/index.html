@@ -7,7 +7,10 @@
         <img src="{% static 'images/hero-image.jpg' %}" class="img-fluid" alt="baby-feet">
         <div class="hero-inner">
             <h2>Hand picked gifts for new babas</h2>
-            <a href="{% url 'products' %}" class="btn btn-lg btn-outline bg-coral">Shop now</a>
+            <a href="{% url 'products' %}" class="btn btn-outline bg-coral d-none d-md-inline-block">Shop now</a>
+        </div>
+        <div class="d-md-none hero-inner-small">
+            <a href="{% url 'products' %}" class="btn btn-sm btn-outline bg-coral">Shop now</a>
         </div>
     </div>
 </section>
@@ -15,7 +18,8 @@
 <section class="container">
     <div class="section-center">
         <h2>Loved by children, trusted by parents</h2>
-        <p>BabaGifts presents a collection of soft soled shoes and hair accessories for the most precious little people in our lives.</p>
+        <p>BabaGifts presents a collection of soft soled shoes and hair accessories for the most precious little people
+            in our lives.</p>
     </div>
     <div class="row awards">
         <div class="col-4">
@@ -36,18 +40,12 @@
         <p>Exclusive access to products, special offers & all the important updates.</p>
         <form>
             <div class="form-group">
-              <input
-                type="email"
-                class="form-control form-control-lg"
-                id="email"
-                name="email"
-                placeholder="Email"
-                required
-              />
+                <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Email"
+                    required />
             </div>
             <button type="submit" class="btn btn-lg btn-outline bg-peach signup-btn">
                 Sign Up
-              </button>
+            </button>
         </form>
     </div>
 </section>

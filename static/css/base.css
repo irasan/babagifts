@@ -141,16 +141,22 @@ a {
     margin-top: 50px;
 }
 
+.hero-inner-small {
+    position: absolute;
+    bottom: 30px;
+}
+
 .hero-inner h2 {
     font-size: 1.5rem;
 }
 
-.hero-inner .btn {
+.hero-inner btn {
     cursor: pointer;
     border-radius: 10px;
 }
 
-.hero-inner .btn:hover {
+.hero-inner btn,
+.hero-inner-small btn:hover {
     background-color: #F8AD9D;
 }
 

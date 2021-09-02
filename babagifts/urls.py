@@ -32,4 +32,3 @@ urlpatterns = [
 ]
 
 handler404 = "babagifts.views.Not_Found"
-

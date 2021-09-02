@@ -7,7 +7,7 @@ class SubActiveAdmin(admin.ModelAdmin):
     readonly_fields = ('sub_number', 'date',
                        'sub_total', 'stripe_pid')
 
-    fields = ('sub_number', 'user_profile', 'date', 'description', 
+    fields = ('sub_number', 'user_profile', 'date', 'description',
               'full_name', 'email', 'phone_number', 'country',
               'postcode', 'town_or_city', 'street_address1',
               'street_address2', 'county', 'sub_total', 'stripe_pid')

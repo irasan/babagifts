@@ -73,6 +73,7 @@ def subscribe(request, subscription_id):
             date = datetime.now() + relativedelta(months=int(duration))
             sub_active.end_date = date
 
+            # Get title from Subscription model
             name = request.POST['name']
             sub_active.description = name
 
@@ -81,7 +82,8 @@ def subscribe(request, subscription_id):
             sub_active.sub_total = subscription.price
             sub_active.save()
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('confirm_sub', args=[sub_active.sub_number]))
+            return redirect(reverse(
+                'confirm_sub', args=[sub_active.sub_number]))
 
         else:
             messages.error(request, 'There was an error with your form. \

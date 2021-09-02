@@ -23,7 +23,8 @@ class StripeWH_Handler:
             {'sub_active': sub_active})
         body = render_to_string(
             'subscriptions/confirmation_emails/confirmation_email_body.txt',
-            {'sub_active': sub_active, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+            {'sub_active': sub_active,
+             'contact_email': settings.DEFAULT_FROM_EMAIL})
 
         send_mail(
             subject,
@@ -98,8 +99,8 @@ class StripeWH_Handler:
         if order_exists:
             self._send_confirmation_email(sub_active)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
-                status=200)
+                content=f'Webhook received: {event["type"]} | SUCCESS: \
+                    Verified order already in database', status=200)
         else:
             sub_active = None
             try:
@@ -116,7 +117,7 @@ class StripeWH_Handler:
                     county=shipping_details.address.state,
                     stripe_pid=pid,
                 )
-                    
+
             except Exception as e:
                 if sub_active:
                     sub_active.delete()
@@ -125,8 +126,8 @@ class StripeWH_Handler:
                     status=500)
         self._send_confirmation_email(sub_active)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
-            status=200)
+            content=f'Webhook received: {event["type"]} | SUCCESS: \
+                Created order in webhook', status=200)
 
     def handle_payment_intent_payment_failed(self, event):
         """

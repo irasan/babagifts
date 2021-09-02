@@ -16,13 +16,15 @@ def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
     count = wishlist_count(request)['items_count']
 
+    # Update user's info
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(request, 'Update failed. Please ensure the \
+                form is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -82,6 +84,7 @@ def sub_history(request, sub_number):
     return render(request, template, context)
 
 
+# Back up function for logging out
 def auth_logout(request):
     logout(request)
     return redirect('home')

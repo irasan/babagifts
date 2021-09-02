@@ -17,16 +17,26 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Wishlist',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='wishlist', to='profiles.userprofile')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='wishlist', to='profiles.userprofile')),
             ],
         ),
         migrations.CreateModel(
             name='WishlistItem',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='product', to='products.product')),
-                ('wishlist', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='wishlist_item', to='wishlists.wishlist')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
+                ('product', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='product', to='products.product')),
+                ('wishlist', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='wishlist_item', to='wishlists.wishlist')),
             ],
         ),
     ]

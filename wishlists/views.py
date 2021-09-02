@@ -13,7 +13,8 @@ def view_wishlist(request):
     wishlist = user.wishlist.all()
 
     if wishlist:
-        wishlist_items = WishlistItem.objects.filter(wishlist__in=wishlist)
+        wishlist_items = WishlistItem.objects.filter(
+            wishlist__in=wishlist)
 
     else:
         wishlist_items = []
@@ -39,8 +40,8 @@ def add_to_wishlist(request, product_id):
 
     if wishlist:
         if WishlistItem.objects.filter(product=product).exists():
-            wishlist_item = WishlistItem.objects.filter(product=product,
-                                                        wishlist=wishlist).delete()
+            wishlist_item = WishlistItem.objects.filter(
+                product=product, wishlist=wishlist).delete()
             messages.add_message(request, messages.INFO, f'{product.name} \
                 was removed from your wishlist.')
             return HttpResponseRedirect(reverse('view_wishlist'))

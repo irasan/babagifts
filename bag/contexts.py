@@ -31,14 +31,14 @@ def bag_contents(request):
                     'product': product,
                     'size': size,
                 })
-    
+
     if total < settings.DELIVERY_THRESHOLD:
         delivery = settings.DELIVERY_MIN
     else:
         delivery = settings.DELIVERY_MAX
 
     grand_total = delivery + total
-    
+
     context = {
         'bag_items': bag_items,
         'total': total,

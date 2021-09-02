@@ -15,6 +15,7 @@ def all_products(request):
 
     products = Product.objects.all()
 
+    # check if product is in the wishlist
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         wishlist = get_object_or_404(Wishlist, user=profile)
@@ -23,8 +24,8 @@ def all_products(request):
                 wishlist=wishlist, product=product)
             product.save()
 
+    # search
     query = None
-
     if request.GET:
         if 'q' in request.GET:
             query = request.GET['q']
@@ -51,6 +52,7 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     in_wishlist = bool(False)
 
+    # check if product is in the wishlist
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         wishlist = get_object_or_404(Wishlist, user=profile)

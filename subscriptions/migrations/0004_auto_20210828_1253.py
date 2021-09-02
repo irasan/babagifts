@@ -15,7 +15,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='subactive',
             name='description',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='subscriptions.subscription'),
+            field=models.ForeignKey(
+                null=True, on_delete=django.db.models.deletion.SET_NULL,
+                to='subscriptions.subscription'),
         ),
         migrations.AddField(
             model_name='subactive',

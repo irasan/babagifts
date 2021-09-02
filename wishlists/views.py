@@ -40,22 +40,26 @@ def add_to_wishlist(request, product_id):
     if wishlist:
         if WishlistItem.objects.filter(product=product).exists():
             wishlist_item = WishlistItem.objects.filter(product=product,
-                                                wishlist__in=wishlist).delete()
-            messages.add_message(request, messages.ERROR, f'{product.name} was removed from your wishlist.')
+                                                        wishlist=wishlist).delete()
+            messages.add_message(request, messages.INFO, f'{product.name} \
+                was removed from your wishlist.')
             return HttpResponseRedirect(reverse('view_wishlist'))
-    
-        wishlist_item = WishlistItem.objects.create(wishlist=wishlist, product=product)
+
+        wishlist_item = WishlistItem.objects.create(
+            wishlist=wishlist, product=product)
         wishlist_item.save()
         messages.success(
             request, f'Added {product.name} to your wishlist')
     else:
         wishlist = Wishlist.objects.create(user=user)
         if WishlistItem.objects.filter(product=product).exists():
-            messages.error(request, f'You already have {product.name} in your wishlist.')
-            
+            messages.error(request, f'You already have {product.name} \
+                in your wishlist.')
+
             return HttpResponse(status=500)
-    
-        wishlist_item = WishlistItem.objects.create(wishlist=wishlist, product=product)
+
+        wishlist_item = WishlistItem.objects.create(
+            wishlist=wishlist, product=product)
         wishlist_item.save()
         messages.success(
             request, f'Added {product.name} to your wishlist')
@@ -69,7 +73,7 @@ def remove_from_wishlist(request, product_id):
     """
     product = get_object_or_404(Product, pk=product_id)
     user = get_object_or_404(UserProfile, user=request.user)
-    wishlist = wishlist = user.wishlist.all()
+    wishlist = user.wishlist.all()
     wishlist_item = WishlistItem.objects.filter(product=product,
                                                 wishlist__in=wishlist).delete()
     messages.success(request, f'Product {product.name} removed form wishlist!')

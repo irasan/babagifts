@@ -141,7 +141,7 @@ Manual testing was used to test navigation, responsiveness on different screen s
 
 ### Client Stories Testing
 All client stories developed in the beginning of the project were tested. Only two of them were not fulfilled:
-* As a shopper I want easily see the total of my purchases at any time - the total quantity was replaced with items count
+* As a shopper I want to see the total of my purchases at any time - the total quantity was replaced with items count
 in the shopping bag. Its is always seen beside the bag icon in the navbar.
 * As a registered user I want to be able to delete my account - this was left for future development.
 

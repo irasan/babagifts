@@ -67,6 +67,10 @@ select option[value=""] {
   color: white;
 }
 
+.grad {
+  background-image: linear-gradient(to bottom right, #FFDAB9, #F08080);
+}
+
   /* -------------------------------- Media Queries */
 
 @media (max-width: 768px) {

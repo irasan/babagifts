@@ -1,54 +1,71 @@
-.StripeElement {
-    box-sizing: border-box;
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
 
-    height: 40px;
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
 
-    padding: 10px 12px;
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
 
-    border: 1px solid transparent;
-    border-radius: 4px;
-    background-color: white;
+.stripe-style-input::placeholder {
+    color: #aab7c4;
+}
 
-    box-shadow: 0 1px 3px 0 #e6ebf1;
-    -webkit-transition: box-shadow 150ms ease;
-    transition: box-shadow 150ms ease;
-  }
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
 
-  .StripeElement--focus {
-    box-shadow: 0 1px 3px 0 #cfd7df;
-  }
+#payment-form .form-control,
+#card-element {
+    color: #000;
+    border: 1px solid #4A0D07;
+}
 
-  .StripeElement--invalid {
-    border-color: #fa755a;
-  }
+select,
+select option {
+    color: #AAA;
+}
 
-  .StripeElement--webkit-autofill {
-    background-color: #fefde5 !important;
-  }
-  .hidden {
-      display: none;
-  }
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
 
-  .container-sub {
-    position: relative; 
-  }
+.container-sub {
+  position: relative; 
+}
 
-  .sub-heading {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    color: white;
-    width: 30%;
-  }
+.sub-heading {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  color: white;
+  width: 30%;
+}
 
-  .sub-inner {
-    font-size: 1.2em;
-    position: absolute;
-    width: 40%;
-    top: 30px;
-    left: 25px;
-    color: white;
-  }
+.sub-inner {
+  font-size: 1.2em;
+  position: absolute;
+  width: 40%;
+  top: 30px;
+  left: 25px;
+  color: white;
+}
 
   /* -------------------------------- Media Queries */
 

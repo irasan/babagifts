@@ -12,7 +12,7 @@
                 <h2 class="mb-4 mt-4">About Us</h2>
                 <hr>
             </div>
-            <div class="mb-2 mt-4">
+            <div class="mb-2 mt-4 px-3">
                 <p>BabaGifts is a family run business based in Dublin, Ireland. It was founded back in 2014 when
                     our beautiful daughter Leila was born. We wanted to dress her in pretty clothes and matching
                     accessories to show her off to the world. We also cared about the quality of the things we put
@@ -38,7 +38,7 @@
     <div class="section-center bg-coral mb-5">
         <h2>Join our newsletter</h2>
         <p>Exclusive access to products, special offers & all the important updates.</p>
-        <form>
+        <form method="POST" action="{% url 'home' %}" class="form">
             <div class="form-group">
                 <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Email"
                     required />

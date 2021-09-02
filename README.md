@@ -135,6 +135,10 @@ between users and website.
 ### Testing Using Validators
 Upon completion of the writing process, developer used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/),
 [W3C MarkUp Validation Service](https://validator.w3.org/), and [PEP8 online](http://pep8online.com/) to check the validity of the code. Code passed the tests with some errors that cannot be fixed. For example, too long lines that cannot be shortened or split in two. 
+Website was also tested using [Lighhouse](https://developers.google.com/web/tools/lighthouse). The following reports were generated on home and products pages:
+![lighthouse-report](static/images/lighthouse1.png)
+
+![lighthouse-report](static/images/lighthouse2.png)
 
 ### Manual Testing
 The website was continuously tested on emulated large and small screens when writing the code. 
@@ -186,6 +190,14 @@ The website was also tested on an IOS (Iphone 10) and Android (Pixel 4) devices.
 * Shop now button on the home page was too big;
 * subscription page was not displayed nicely with some extra margins and poor centering;
 All issues stated above were addressed and fixed.
+
+### Bugs and fixes
+* When implementing wishlists, I wanted to display on the products page what items were already in the user's wishlist. It was 
+easier to do on a product details page, since product id was already used in the view. However, on the page where all products 
+are displayed, solution wasn't straight forward. To implement this, I created a function that itirates through each product and add a field "in_wishlist" if it was saved by the user. However, it might be too costly if there are hundreds of products to display.
+* At first I aimed to add proper subscriptions to my website. However, by the time I was ready to do that, I have already created User Profile App. Unfortunately, I couldn't find a way under the given time constraints to make peace between Stripe users and my app users. That's why I decided to create subscriptions with one-off payments and no possibility for users to cancel them.
+* During deployment, I couldn't export my database tables to Heroku Postgres DB from the first go. It wasn't noticed in time and caused many problems afterwards. I had to create Products and Subscriptions tables again in Heroku. 
+* Many bugs were fixed thanks to the debug mode in django. It helped to easily understand what's causing the error and try to fix it. In more difficult cases I could easily search for possible solutions simply by copying and pasting the error wording. 
 
 ## Deployment
 ### Requirements To Deploy:

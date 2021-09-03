@@ -18,11 +18,15 @@ def all_products(request):
     # check if product is in the wishlist
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        wishlist = get_object_or_404(Wishlist, user=profile)
-        for product in products:
-            product.in_wishlist = WishlistItem.objects.filter(
-                wishlist=wishlist, product=product)
-            product.save()
+        try: 
+            wishlist = Wishlist.objects.get(user=profile)
+            if wishlist:
+                for product in products:
+                    product.in_wishlist = WishlistItem.objects.filter(
+                        wishlist=wishlist, product=product)
+                    product.save()
+        except Wishlist.DoesNotExist:
+            pass
 
     # search
     query = None
@@ -55,13 +59,15 @@ def product_detail(request, product_id):
     # check if product is in the wishlist
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        wishlist = get_object_or_404(Wishlist, user=profile)
-        items = WishlistItem.objects.filter(
-            wishlist=wishlist, product=product)
-        if items:
-            in_wishlist = bool(True)
-        else:
-            in_wishlist = bool(False)
+        try:
+            wishlist = Wishlist.objects.get(user=profile)
+            if wishlist:
+                items = WishlistItem.objects.filter(
+                wishlist=wishlist, product=product)
+            if items:
+                in_wishlist = bool(True)
+        except Wishlist.DoesNotExist:
+            pass
 
     context = {
         'product': product,

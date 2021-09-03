@@ -71,7 +71,7 @@ def add_to_wishlist(request, product_id):
 @login_required
 def remove_from_wishlist(request, product_id):
     """
-    View to add products to wishlist
+    View to remove products from wishlist
     """
     product = get_object_or_404(Product, pk=product_id)
     user = get_object_or_404(UserProfile, user=request.user)
@@ -79,6 +79,7 @@ def remove_from_wishlist(request, product_id):
     wishlist = user.wishlist.all()
     wishlist_item = WishlistItem.objects.filter(product=product,
                                                 wishlist__in=wishlist).delete()
-    messages.success(request, f'Product {product.name} was removed form wishlist!')
+    messages.success(request, f'Product {product.name} was removed \
+        form wishlist!')
 
     return redirect('products')

@@ -44,6 +44,8 @@ def profile(request):
 
 @login_required
 def order_history(request, order_number):
+    """ A view to display user's previous orders """
+
     order = get_object_or_404(Order, order_number=order_number)
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -68,8 +70,9 @@ def order_history(request, order_number):
 
 
 def sub_history(request, sub_number):
-    sub_active = get_object_or_404(SubActive, sub_number=sub_number)
+    """ A view to display user's subscriptions """
 
+    sub_active = get_object_or_404(SubActive, sub_number=sub_number)
     messages.info(request, (
         f'This is a past confirmation for subscription number {sub_number}. '
         'A confirmation email was sent on the order date.'

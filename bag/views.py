@@ -5,7 +5,7 @@ from products.models import Product
 from wishlists.contexts import wishlist_count
 
 
-# Create your views here.
+# Code taken from boutique_ado project and slightly modified
 def view_bag(request):
     """ A view that renders the bag contents page """
     if request.user.is_authenticated:

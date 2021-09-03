@@ -45,6 +45,8 @@ def cache_subscribe_data(request):
 
 @login_required
 def subscribe(request, subscription_id):
+    """ A view to purchase a subscription"""
+    
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 

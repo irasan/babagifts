@@ -91,6 +91,7 @@ Admin | add new, edit or delete categories.
 * Product rating
 * Additional info messages for users.
 * Proper subscriptions with recurring payments and options to edit or cancel them.
+* Add more defensive programming features.
 
 ## Technologies used
 ### Languages:
@@ -324,7 +325,8 @@ Tutorial on how to link to different section of the same page from [here](https:
 
 How to calculate some date in the [future](https://stackoverflow.com/questions/546321/how-do-i-calculate-the-date-six-months-from-the-current-date-using-the-datetime)
 
-[Parallax effect](https://www.w3schools.com/howto/howto_css_parallax.asp)
+[Parallax effect](https://www.w3schools.com/howto/howto_css_parallax.asp) and how to make it 
+[responsive](https://inkplant.com/code/responsive-parallax-images)
 
 ## Previews
 

@@ -1,14 +1,14 @@
 # Baba Gifts
-![subscription-page](static/images/home-page.png)
+![subscription-page](static/images/subscription-page.png)
 
 
 This is an eCommerce store with Stripe integrated payment processing. It is fully responsive and accessible on a range of devices, making it easy to navigate for potential clients. It was created using Django framework and hosted on Heroku.
 
-View the live project [here](http://babagifts.herokuapp.com/)
+View live project [here](http://babagifts.herokuapp.com/)
 
 ## User Experience (UX)
 ### Developer's Goals
-It is a final project of the Full Stack Web Development program provided by Code Institute. It's main purpose is to learn how to build e-commerce websites using Django.  
+It is a final project of the Full Stack Web Development course provided by Code Institute. It's main purpose is to learn how to build e-commerce websites using Django.  
 
 ### Site Owner Goals
 The primary goal of the site owner is to nicely present items for sale and subsequently sell them. Site owner would need an easy access
@@ -44,19 +44,18 @@ Admin | add new, edit or delete categories.
 
 ### Design
 * #### Color scheme
-    The following color pallete was created using [Coolors](https://coolors.co/) I chose soft pinkish colors to emphasize 
+    The following color pallete was created using [Coolors](https://coolors.co/). I chose soft pinkish colors to emphasize 
     the theme and stimulate purchases.
     ![color-pallete](static/images/color-pallete.png)
 
 * #### Typography
-    This project uses Montserrat and Style Script fonts, provided by [Google Fonts](https://fonts.google.com/)
+    This project uses Montserrat as a main font and Style Script font for headings. Both fonts are provided by [Google Fonts](https://fonts.google.com/)
 
 * #### Imagery 
     Most of the pictures are from private collections, while some were downloaded from [Pexels](https://www.pexels.com/)
 
 * #### Icons
-    Icons are used throughout this website in an attempt to increase UX design where possible. All icons were taken
-    from [FontAwesome](https://fontawesome.com/)
+    Icons are used throughout this website in an attempt to increase UX design where possible. All icons were chosen for their obvious meaning so that they can be easily understood by everyone. They were taken from [FontAwesome](https://fontawesome.com/).
 
 ### Wireframes
 * Wireframes for large screens - [view](https://github.com/irasan/babagifts/blob/master/assets/wireframes/desktop_view.pdf)
@@ -66,19 +65,19 @@ Admin | add new, edit or delete categories.
 
 ## Features
 ### Existing Features
-* The navbar contains a logo(name) on top left hand corner to redirect to the landing page. Different site sections (Home, Products, Subscriptions, About and Contact) are placed in the center. In the right corner three icons are displayed: profile, search and shopping bag. Profile icon has a dropdown submenu which 
-changes depending on user being logged in or not. If the user is not logged the account submenu will show Register and Login links. If the user is logged in, he'll see Profile and Logout links. If a superuser is logged in, account submenu will show 3 links: Product Management,Profile, and Logout. Search input field will appear when clicking on search icon. It allows to search products and subscriptions. Shopping bag dispays quantity of the items currently put there.  
-* The footer shows links to the following pages: Home, F.A.Q., Register, Login, Profile, and social media icons. 
+* The navbar contains a logo(name) on top left corner to redirect to the landing page. Different site sections (Home, Products, Subscriptions, About and Contact) are placed in the center. In the right corner three icons are displayed: profile, search and shopping bag. Profile icon has a dropdown submenu which changes depending on user being logged in or not. If the user is not logged in, account submenu will show Register and Login links. If the user is logged in, he'll see Profile, Wishlist and Logout links. If a superuser is logged in, account submenu will also show Product Management submenu. Search input field will appear when clicking on search icon. It allows to search products and subscriptions. Shopping bag dispays quantity of the items currently put there.  
+* The footer shows links to the following pages: Home, F.A.Q., Contact, Profile, and social media icons. 
 * User authentication: users can register their profiles, log in and log out. 
 * On the profile page users can see their default info if any and change it. Subscriptions and past orders will also be displayed. There's also a button to user's wishlist. 
 * Any user can browse different products and subscriptions.
-* Logged in users can save products to wishlist and see if those products have already been saved (red heart icon will indicate this)
+* Logged in users can save products to a wishlist and see if those products have already been saved (red heart icon will indicate this)
 * Any user can buy different products, while subscriptions are only available to registered users.
 * Any user (logged in or not) can checkout securely.
 * Any user can see confirmations / error messages when completing actions on the website.
 * Any user can receive confirmation emails for order when compliting order form during checkout.
 * The admin can add, update and remove products via admin page or via website.
 * Any user can send a message to site owners through contact page.
+* Any user can subscribe to a newsletter by providing their email address.
 
 ### Other features include:
 * Stripe Integration.
@@ -91,7 +90,7 @@ changes depending on user being logged in or not. If the user is not logged the 
 ### Features left to implement
 * Product rating
 * Additional info messages for users.
-
+* Proper subscriptions with recurring payments and options to edit or cancel them.
 
 ## Technologies used
 ### Languages:
@@ -134,7 +133,8 @@ between users and website.
 ## Testing
 ### Testing Using Validators
 Upon completion of the writing process, developer used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/),
-[W3C MarkUp Validation Service](https://validator.w3.org/), and [PEP8 online](http://pep8online.com/) to check the validity of the code. Code passed the tests with some errors that cannot be fixed. For example, too long lines that cannot be shortened or split in two. 
+[W3C MarkUp Validation Service](https://validator.w3.org/), and [PEP8 online](http://pep8online.com/) to check the validity of the code. Code passed the tests with some errors that cannot be fixed. For example, too long lines that cannot be shortened or split in two. Some other errors, like unused imports in files automatically created by Django, were also left untouched.
+
 Website was also tested using [Lighhouse](https://developers.google.com/web/tools/lighthouse). The following reports were generated on home and products pages:
 ![lighthouse-report](static/images/lighthouse1.png)
 
@@ -328,7 +328,7 @@ How to calculate some date in the [future](https://stackoverflow.com/questions/5
 
 ## Previews
 
-![subscription-page](static/images/subscription-page.png)
+![subscription-page](static/images/home-page.png)
 
 
 ![product-page](static/images/product-page.png)

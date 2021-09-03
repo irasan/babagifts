@@ -213,11 +213,11 @@ input[type=number] {
 /* about page */
 .parallax {
     background-image: url("../images/about.jpg");
-    height: 300px;
+    height: 500px;
     background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
 }
 
 /* wishlist page */
@@ -281,16 +281,8 @@ input[type=number] {
     }
 } 
 
-@media (min-width: 500px) {
-    .parallax {
-        background-image: url("../images/about.jpg");
-        min-height: 500px;
-    }
-}
-
-@media (min-width: 900px) {
-    .parallax {
-        background-image: url("../images/about.jpg");
-        min-height: 700px;
-    }
+@media screen and (max-width: 768px) {
+	.parallax {
+		background-attachment: inherit;
+	}
 }

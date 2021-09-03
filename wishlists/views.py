@@ -33,6 +33,7 @@ def add_to_wishlist(request, product_id):
     """
     user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
+    redirect_url = request.POST.get('redirect_url')
     try:
         wishlist = Wishlist.objects.get(user=user)
     except:
@@ -44,7 +45,7 @@ def add_to_wishlist(request, product_id):
                 product=product, wishlist=wishlist).delete()
             messages.add_message(request, messages.INFO, f'{product.name} \
                 was removed from your wishlist.')
-            return HttpResponseRedirect(reverse('view_wishlist'))
+            return redirect('products')
 
         wishlist_item = WishlistItem.objects.create(
             wishlist=wishlist, product=product)
@@ -74,9 +75,10 @@ def remove_from_wishlist(request, product_id):
     """
     product = get_object_or_404(Product, pk=product_id)
     user = get_object_or_404(UserProfile, user=request.user)
+    redirect_url = request.POST.get('redirect_url')
     wishlist = user.wishlist.all()
     wishlist_item = WishlistItem.objects.filter(product=product,
                                                 wishlist__in=wishlist).delete()
-    messages.success(request, f'Product {product.name} removed form wishlist!')
+    messages.success(request, f'Product {product.name} was removed form wishlist!')
 
-    return redirect(reverse('view_wishlist'))
+    return redirect('products')

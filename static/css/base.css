@@ -213,7 +213,7 @@ input[type=number] {
 /* about page */
 .parallax {
     background-image: url("../images/about.jpg");
-    min-height: 600px;
+    height: 300px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -280,3 +280,17 @@ input[type=number] {
         width: 100px;
     }
 } 
+
+@media (min-width: 500px) {
+    .parallax {
+        background-image: url("../images/about.jpg");
+        min-height: 500px;
+    }
+}
+
+@media (min-width: 900px) {
+    .parallax {
+        background-image: url("../images/about.jpg");
+        min-height: 700px;
+    }
+}

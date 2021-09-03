@@ -189,6 +189,7 @@ The website was also tested on an IOS (Iphone 10) and Android (Pixel 4) devices.
 * contact form was not centered;
 * Shop now button on the home page was too big;
 * subscription page was not displayed nicely with some extra margins and poor centering;
+* image on the about page was too big on small screens.
 All issues stated above were addressed and fixed.
 
 ### Bugs and fixes
